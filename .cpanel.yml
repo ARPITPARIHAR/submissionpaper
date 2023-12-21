@@ -1,5 +1,4 @@
----
 deployment:
   tasks:
     - export DEPLOYPATH=/home/pzlbeugckd34/public_html/submission.worldjournalsalert.com/
-    - /bin/cp -r * $DEPLOYPATH
+    - /bin/cp -r app config public ... $DEPLOYPATH
