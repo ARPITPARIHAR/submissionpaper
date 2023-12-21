@@ -9,7 +9,7 @@ class CommentController extends Controller
 {
     public function submitForm(Request $request)
     {
-        try {
+        {
 
            
             $commentData = new CommentTable;
@@ -26,8 +26,7 @@ class CommentController extends Controller
             $commentData->url = $request->url;
             $commentData->save();
 
-            return response()->json(['message' => 'Form submitted successfully']);
-        } catch (\Exception $e) {
+                return redirect()->back();       }  {
             \Log::error('Error in submitForm: ' . $e->getMessage());
             return response()->json(['error' => 'Internal Server Error'], 500);
         }
@@ -38,3 +37,4 @@ class CommentController extends Controller
         return view('partials.comment-modal-body',compact('item'));
     }
 }
+ 

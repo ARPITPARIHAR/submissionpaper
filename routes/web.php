@@ -21,8 +21,8 @@ use App\Http\Controllers\PublishController;
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/formating', [FormatController::class, 'format']);
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
+Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 

@@ -17,7 +17,10 @@ class LoginController extends Controller
         $user = Socialite::driver('google')->user();
 
         // Add your logic for creating or logging in the user here
+        // For example, you might check if the user exists in your database
+        // and create them if not
 
-        return redirect()->route('dashboard'); // Redirect to your dashboard or any other route
+        // Assuming you have a 'dashboard' route
+        return redirect()->route('dashboard');
     }
 }
