@@ -1,9 +1,10 @@
 @extends('user.layouts.app')
+
 @section('meta_title', 'game')
 
 @include('user.includes.navbar')
 
-<div class="container">
+<div class="container" style="margin-top: 100px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -33,11 +34,13 @@
         </div>
     </div>
 </div>
+
 @include('user.includes.footer')
 
 @section('style')
-
+    <!-- Add your styles here if needed -->
 @endsection
-@section('script')
 
+@section('script')
+    <!-- Add your scripts here if needed -->
 @endsection
