@@ -49,3 +49,13 @@ Route::post('get-comment',[CommentController::class, 'getComment'])->name('get-c
 Route::post('/submit-form', [CommentController::class, 'submitForm'])->name('submit.form');
 
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
