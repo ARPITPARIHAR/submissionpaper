@@ -27,8 +27,7 @@ class CommentController extends Controller
             $commentData->save();
 
                 return redirect()->back();       }  {
-            \Log::error('Error in submitForm: ' . $e->getMessage());
-            return response()->json(['error' => 'Internal Server Error'], 500);
+            
         }
     }
     function getComment(Request $request){

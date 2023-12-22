@@ -1,4 +1,4 @@
-<form id="postForm" name="postForm" class="form-horizontal" action="{{ route('submit.form') }}" method="POST" novalidate>
+<form id="postForm" name="postForm" class="form-horizontal" action="{{ route('submit.form') }}" method="POST"  enctype="multipart/form-data" novalidate>
     @csrf
     <input type="hidden" name="id" value="{{$item->id}}" id="id">
     <input type="hidden" name="file_id" value="{{$item->file_content}}" id="file_id"> 

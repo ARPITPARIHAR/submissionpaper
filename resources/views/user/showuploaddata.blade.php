@@ -134,7 +134,7 @@
                 </td>
                 <td>
                     @if (!is_null($commentData) && count($commentData) > $commentKey)
-                        {{ $commentData[$commentKey]->url ?? '' }}
+                        <a href="{{ $commentData[$commentKey]->url ?? '' }}" target="_blank">{{ $commentData[$commentKey]->url ?? '' }}</a>
                     @endif
                 </td>
             </tr>
