@@ -93,6 +93,36 @@
             font-size: 18px;
             color: white;
         } */ */
+
+        @media screen and (max-width: 768px) {
+            form {
+                padding: 10px;
+            }
+
+            input {
+                padding: 8px;
+            }
+
+            .drop-box {
+                padding: 10px;
+            }
+
+            .icon {
+                font-size: 24px;
+            }
+
+            .custom-file-upload {
+                padding: 6px 12px;
+            }
+
+            #selectedFileName {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 8px 16px;
+            }
+        }
     </style>
 </head>
 

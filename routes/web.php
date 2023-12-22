@@ -41,9 +41,9 @@ Route::get('/show-data', [FormatController::class, 'showData'])->name('show-data
 
 
 
- Route::middleware(['auth'])->group(function () {
+//  Route::middleware(['auth'])->group(function () {
 Route::get('/publishing', [PublishController::class, 'publish']);
- });
+//  });
 Route::get('/download/{file}', [PublishController::class, 'download']);
 Route::post('get-comment',[CommentController::class, 'getComment'])->name('get-comment');
 Route::post('/submit-form', [CommentController::class, 'submitForm'])->name('submit.form');

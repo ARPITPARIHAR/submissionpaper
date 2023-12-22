@@ -55,7 +55,7 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0"style="background-color:#ff0061!important; height:80px;">
             <a href="/" class="navbar-brand p-0">
-                <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>Startup</h1>
+                <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>SubmissionPaper</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>

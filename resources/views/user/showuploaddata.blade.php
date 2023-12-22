@@ -43,6 +43,26 @@
 .pagination .page-link {
         font-size: 16px; /* Adjust the font size as needed */
     }
+    @media screen and (max-width: 768px) {
+        table.table {
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .pagination {
+            margin-top: 10px;
+        }
+
+        .pagination > li > a,
+        .pagination > li > span {
+            font-size: 12px;
+            padding: 6px 8px;
+        }
+
+        .pagination .page-link {
+            font-size: 14px; /* Adjust the font size as needed */
+        }
+    }
 </style>
 
 <h1>Data Table</h1>
@@ -107,8 +127,16 @@
                         Pending
                     @endif
                 </td>
-                
-                <td>{{ $item->url ?? '' }}</td>
+                <td>
+                    @if (!is_null($commentData) && count($commentData) > $commentKey)
+                        {{ $commentData[$commentKey]->pdf ?? '' }}
+                    @endif
+                </td>
+                <td>
+                    @if (!is_null($commentData) && count($commentData) > $commentKey)
+                        {{ $commentData[$commentKey]->url ?? '' }}
+                    @endif
+                </td>
             </tr>
         @endforeach
         
