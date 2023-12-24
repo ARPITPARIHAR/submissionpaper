@@ -4,6 +4,8 @@
 @include('user.includes.navbar')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="path/to/fontawesome-free-5.15.1/css/all.min.css">
+
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
@@ -27,13 +29,19 @@
     }
 
     table.table th {
-        background-color: #f2f2f2;
+        background-color: #06A3DA;
+        color: white;
     }
     .pagination {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
+
+    .pdf-icon {
+        font-size: 24px;
+        color:red;
+    }
 
 .pagination > li > a,
 .pagination > li > span {
@@ -65,8 +73,10 @@
     }
 </style>
 
-<h1>Data Table</h1>
-
+<!--<h1>Data Table</h1>-->
+<br>
+<br>
+<div style="overflow-x: auto;">
 @if(!is_null($formatData) && count($formatData) > 0)
     <table class="table">
         <thead>
@@ -107,7 +117,37 @@
                 <td>{{ $serialNumber }}</td>
                 <td>{{ $item->journal_name ?? '' }}</td>
                 <td>{{ $item->title ?? '' }}</td>
-                <td>{{ $item->file_content ?? '' }}</td>
+<td>
+    @if (!is_null($item->file_content))
+        @php
+            $fileExtension = pathinfo($item->file_content, PATHINFO_EXTENSION);
+            $iconClass = '';
+            $iconColor = '#007BFF'; // Blue color
+            
+            switch ($fileExtension) {
+                case 'doc':
+                case 'docx':
+                    $iconClass = 'fa-file-word';
+                    break;
+                case 'pdf':
+                    $iconClass = 'fa-file-pdf';
+                    break;
+                // Add more cases for other file types if needed
+                default:
+                    $iconClass = 'fa-file'; // Default icon class
+                    break;
+            }
+        @endphp
+
+        <i class="fas {{ $iconClass }} file-icon" style="font-size: 24px; color: {{ $iconColor }}"></i>
+        {{ $item->file_content }}
+    @else
+        No file available
+    @endif
+</td>
+
+
+
                 <td>
                     {{ $status === 'downloaded' ? 'Downloaded' : 'Not Downloaded' }}
                 </td>
@@ -127,11 +167,26 @@
                         Pending
                     @endif
                 </td>
-                <td>
-                    @if (!is_null($commentData) && count($commentData) > $commentKey)
-                        {{ $commentData[$commentKey]->pdf ?? '' }}
-                    @endif
-                </td>
+<td>
+    @if (!is_null($commentData) && count($commentData) > $commentKey)
+        @php
+            $pdfPath = url('public/assets/' . $commentData[$commentKey]->pdf);
+        @endphp
+
+        @if (file_exists(public_path('assets/' . $commentData[$commentKey]->pdf)))
+            <a href="{{ $pdfPath }}" target="_blank">
+                <i class="fas fa-file-pdf pdf-icon"></i>
+                {{ $commentData[$commentKey]->pdf ?? '' }}
+            </a>
+        @else
+            File not found at path: {{ $pdfPath }}
+        @endif
+    @endif
+</td>
+
+
+
+
                 <td>
                     @if (!is_null($commentData) && count($commentData) > $commentKey)
                         <a href="{{ $commentData[$commentKey]->url ?? '' }}" target="_blank">{{ $commentData[$commentKey]->url ?? '' }}</a>
@@ -147,6 +202,7 @@
         
         </tbody>
     </table>
+    </div>
     {{ $formatData->appends(Request::except('page'))->links('pagination::bootstrap-5') }}
 
     {{-- <div class="pagination">

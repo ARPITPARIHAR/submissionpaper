@@ -29,7 +29,8 @@
     }
 
     table.table th {
-        background-color: #f2f2f2;
+        background-color: #5b9d4f;
+        color:white;
     }
 </style>
 
@@ -54,7 +55,35 @@
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $item->journal_name ?? '' }}</td>
                         <td>{{ $item->title ?? '' }}</td>
-                        <td>{{ $item->file_content ?? '' }}</td>
+                       <td>
+    @if (!is_null($item->file_content))
+        @php
+            $fileExtension = pathinfo($item->file_content, PATHINFO_EXTENSION);
+            $iconClass = '';
+            $iconColor = '#007BFF'; // Blue color
+            
+            switch ($fileExtension) {
+                case 'doc':
+                case 'docx':
+                    $iconClass = 'fa-file-word';
+                    break;
+                case 'pdf':
+                    $iconClass = 'fa-file-pdf';
+                    break;
+                // Add more cases for other file types if needed
+                default:
+                    $iconClass = 'fa-file'; // Default icon class
+                    break;
+            }
+        @endphp
+
+        <i class="fas {{ $iconClass }} file-icon" style="font-size: 24px; color: {{ $iconColor }}"></i>
+        {{ $item->file_content }}
+    @else
+        No file available
+    @endif
+</td>
+
                         <td>
                             @if($item->submitted == 1)
                                 <input type="checkbox" checked='checked' style="width: 20px; height: 20px;" />
@@ -64,7 +93,8 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ url('/download', $item->file_content) }}">Download</a>
+                       <a href="{{ asset('/download/' . $item->file_content) }}">Download</a>
+
                         </td>
                         <td>
                             <a href="#" onclick="openCommentModal({{$item->id}})" class="btn btn-primary btn-publish">Comment</a>

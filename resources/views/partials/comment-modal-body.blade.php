@@ -1,4 +1,7 @@
-<form id="postForm" name="postForm" class="form-horizontal" action="{{ route('submit.form') }}" method="POST"  enctype="multipart/form-data" novalidate>
+<form id="postForm" name="postForm" class="form-horizontal" action="{{ route('submit.form') }}" method="POST"  enctype="multipart/form-data" <form id="postForm" name="postForm" class="form-horizontal" action="{{ route('submit.form') }}" method="POST" enctype="multipart/form-data" novalidate style="background: linear-gradient(0deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.6) 100%);">
+    <!-- Your form content goes here -->
+</form>
+>
     @csrf
     <input type="hidden" name="id" value="{{$item->id}}" id="id">
     <input type="hidden" name="file_id" value="{{$item->file_content}}" id="file_id"> 
@@ -22,7 +25,7 @@
             {{-- <label class="custom-file-label" for="pdf_file">Choose file...</label> --}}
         </div>
     </div>
-    
+
     <br>
     <div class="form-group">
         <label for="url">Enter URL:</label>
