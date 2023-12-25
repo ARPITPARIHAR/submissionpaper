@@ -7,10 +7,9 @@ use App\Models\CommentTable;
 use App\Models\format;
 class CommentController extends Controller
 {
-    public function submitForm(Request $request)
-    {
-        {
-
+    public function submitForm(Request $request, $id)
+{
+    $commentData = CommentTable::find($id);
            
             $commentData = new CommentTable;
             $commentData->comment = $request->comment;
@@ -26,10 +25,11 @@ class CommentController extends Controller
             $commentData->url = $request->url;
             $commentData->save();
 
-                return redirect()->back();       }  {
+                return redirect()->back();     
+              } 
             
-        }
-    }
+        
+    
     function getComment(Request $request){
         
         $item=format::find($request->id);

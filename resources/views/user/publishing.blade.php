@@ -97,7 +97,8 @@
 
                         </td>
                         <td>
-                            <a href="#" onclick="openCommentModal({{$item->id}})" class="btn btn-primary btn-publish">Comment</a>
+                            <a href="#" onclick="openCommentModal({{$item->id}})" data-id="{{ $item->id }}" class="btn btn-primary btn-publish">Comment</a>
+
                             
                         </td>
                     </tr>
@@ -114,7 +115,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Publish Form</h4>
+                <h4 class="modal-title mx-auto">Publish Form</h4>
                 <button type="button" class="close" aria-label="Close" onclick="closeModal()">
                     <span aria-hidden="true">&times;</span>
                 </button>

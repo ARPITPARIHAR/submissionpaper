@@ -1,10 +1,9 @@
-<form id="postForm" name="postForm" class="form-horizontal" action="{{ route('submit.form') }}" method="POST"  enctype="multipart/form-data" <form id="postForm" name="postForm" class="form-horizontal" action="{{ route('submit.form') }}" method="POST" enctype="multipart/form-data" novalidate style="background: linear-gradient(0deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.6) 100%);">
-    <!-- Your form content goes here -->
-</form>
->
+<form id="postForm" name="postForm" class="form-horizontal" action="{{ route('submit.form') }}" method="POST"  enctype="multipart/form-data" <form id="postForm" name="postForm" class="form-horizontal" action="{{ route('submit.form') }}" method="POST" enctype="multipart/form-data" novalidate >
+
+
+
     @csrf
-    <input type="hidden" name="id" value="{{$item->id}}" id="id">
-    <input type="hidden" name="file_id" value="{{$item->file_content}}" id="file_id"> 
+  
     <div class="form-group">
         <textarea name="comment" placeholder="Enter your comment..." class="form-control" required></textarea>
     </div>
