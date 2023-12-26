@@ -111,7 +111,7 @@
         <input type="text" name="title" id="title">
         <br>
         <i class="icon fas fa-cloud-upload-alt"></i>
-        <p>Drag & Drop your file here<br>or click to browse</p>
+        <p>Drag & Drops your file here<br>or click to browse</p>
 
         <label for="fileInput" class="custom-file-upload">Choose File</label>
         
