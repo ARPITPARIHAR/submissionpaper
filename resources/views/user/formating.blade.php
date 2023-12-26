@@ -71,7 +71,11 @@
         border: none;
         border-radius: 4px;
     }
-
+    @media only screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}
     /* .center-message {
             position: fixed;
             top: 50%;
@@ -111,7 +115,7 @@
         <input type="text" name="title" id="title">
         <br>
         <i class="icon fas fa-cloud-upload-alt"></i>
-        <p>Drag & Drops your file here<br>or click to browse</p>
+        <p>Drag & Drop your file here<br>or click to browse</p>
 
         <label for="fileInput" class="custom-file-upload">Choose File</label>
         

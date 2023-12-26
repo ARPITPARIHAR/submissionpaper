@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #06A3DA;
+    --primary:white;
     --secondary: #34AD54;
     --light: #EEF9FF;
     --dark: #091E3E;
@@ -158,7 +158,7 @@ h6,
 @media (max-width: 991.98px) {
     .sticky-top.navbar-dark {
         position: relative;
-        background: #FFFFFF;
+        background: #b50909;
     }
 
     .navbar-dark .navbar-nav .nav-link,
