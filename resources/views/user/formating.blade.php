@@ -72,10 +72,12 @@
         border-radius: 4px;
     }
     @media only screen and (max-width: 768px) {
-    .container {
-        width: 100%;
-    }
-}
+            .drop-box {
+                margin-left: 5px; /* Adjusted margin for smaller screens */
+                margin-right: 5px; /* Adjusted margin for smaller screens */
+                height: 400px; /* Adjusted height for smaller screens */
+            }
+        }
     /* .center-message {
             position: fixed;
             top: 50%;
