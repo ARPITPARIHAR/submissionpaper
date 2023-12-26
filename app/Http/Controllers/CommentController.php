@@ -7,9 +7,9 @@ use App\Models\CommentTable;
 use App\Models\format;
 class CommentController extends Controller
 {
-    public function submitForm(Request $request, $id)
+    public function submitForm(Request $request)
 {
-    $commentData = CommentTable::find($id);
+    
            
             $commentData = new CommentTable;
             $commentData->comment = $request->comment;

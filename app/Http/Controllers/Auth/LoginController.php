@@ -12,20 +12,20 @@ class LoginController extends Controller
         return view("auth.login");
     }
 
-    public function redirectToGoogle()
-    {
-        return Socialite::driver('google')->redirect();
-    }
+//     public function redirectToGoogle()
+//     {
+//         return Socialite::driver('google')->redirect();
+//     }
 
-    public function handleGoogleCallback()
-    {
-        $user = Socialite::driver('google')->user();
+//     public function handleGoogleCallback()
+//     {
+//         $user = Socialite::driver('google')->user();
 
-        // Add your logic for creating or logging in the user here
-        // For example, you might check if the user exists in your database
-        // and create them if not
+//         // Add your logic for creating or logging in the user here
+//         // For example, you might check if the user exists in your database
+//         // and create them if not
 
-        // Assuming you have a 'dashboard' route
-        return redirect()->route('dashboard');
-    }
-}
+//         // Assuming you have a 'dashboard' route
+//         return redirect()->route('dashboard');
+//     }
+// }

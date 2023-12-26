@@ -94,41 +94,13 @@
             color: white;
         } */ */
 
-        @media screen and (max-width: 768px) {
-            form {
-                padding: 10px;
-            }
-
-            input {
-                padding: 8px;
-            }
-
-            .drop-box {
-                padding: 10px;
-            }
-
-            .icon {
-                font-size: 24px;
-            }
-
-            .custom-file-upload {
-                padding: 6px 12px;
-            }
-
-            #selectedFileName {
-                font-size: 14px;
-            }
-
-            .btn {
-                padding: 8px 16px;
-            }
-        }
+        
     </style>
 </head>
 
 
      
-<form action="{{ route('upload.store') }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('upload.store') }}" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
     @csrf
 
     <div class="drop-box" id="dropArea" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -146,6 +118,7 @@
         <input type="file" name="file" id="fileInput" onchange="updateFileName(this)" accept=".doc, .docx, .pdf">
 
         <div id="selectedFileName"></div>
+        <div id="fileErrorMessage" style="color: red;"></div>
 
         <br>
         <br>
@@ -160,17 +133,42 @@
             // Display the file name in a div
             document.getElementById('selectedFileName').innerText = 'Selected File: ' + fileName;
         }
+
+        function validateForm() {
+            var journalName = document.getElementById('journalName').value.trim();
+            var title = document.getElementById('title').value.trim();
+            var fileInput = document.getElementById('fileInput');
+            var allowedExtensions = ["doc", "docx", "pdf"];
+
+            if (journalName === '' || title === '') {
+                alert('Journal Name and Title cannot be blank!');
+                return false; // Prevent form submission
+            }
+
+            // Check if a file is selected
+            if (!fileInput.files.length) {
+                alert('Please choose a valid file.');
+                return false;
+            }
+
+            // Check file extension
+            var fileName = fileInput.value.toLowerCase();
+            var fileExtension = fileName.split(".").pop();
+
+            if (!allowedExtensions.includes(fileExtension)) {
+                document.getElementById('fileErrorMessage').innerText = "Please select a valid file (doc, docx, or pdf).";
+                return false; // Prevent form submission
+            } else {
+                document.getElementById('fileErrorMessage').innerText = "";
+            }
+
+            return true; // Allow form submission
+        }
     </script>
-  
-
 </form>
-@if(session('centerSuccess'))
-<div class="success-message" style="background-color: rgb(0, 179, 255); margin: 0 auto; width: 20%; text-align: center; position: relative; padding: 15px;color:white;">
-    <span class="closing-button" onclick="closeSuccessMessage()" style="position: absolute; top: 5px; right: 10px; font-size: 28px;">&times;</span>
-    <p style="font-size: 18px;">{{ session('centerSuccess') }}</p>
-</div>
 
-@endif
+
+
 </div>
 </div>
 </div>
@@ -352,12 +350,7 @@
       
     });
   </script>
-  <script>
-function closeSuccessMessage() {
-    var successMessage = document.querySelector('.success-message');
-    successMessage.style.display = 'none';
-}
-</script>
+
 
 
 <!-- Add these links to your HTML head -->
@@ -369,6 +362,38 @@ function closeSuccessMessage() {
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+@if(session('centerSuccess'))
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Success!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ session('centerSuccess') }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#successModal').modal('show');
+        });
+    </script>
+@endif
 
 
 

@@ -32,6 +32,21 @@
         background-color: #5b9d4f;
         color:white;
     }
+
+    form {
+    display: inline;
+}
+
+.log button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    float: right;
+    margin-top: -140px !important; /* Adjust the margin-top value as needed */
+}
+
+
 </style>
 
 <div style="overflow-x: auto;">
@@ -110,6 +125,12 @@
         <p>No data available.</p>
     @endif
 </div>
+<form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <div class="log">
+    <button type="submit">Logout</button>
+    </div>
+</form>
 
 <div class="modal fade" id="comment-modal" aria-hidden="true">
     <div class="modal-dialog">

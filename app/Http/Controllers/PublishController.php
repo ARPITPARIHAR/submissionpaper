@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Storage;
 
 class PublishController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('publish', 'download');
+    }
+
     public function publish()
     {
         $data = format::paginate(5); 

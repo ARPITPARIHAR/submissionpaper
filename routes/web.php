@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\FormatController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PublishController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,17 @@ use App\Http\Controllers\PublishController;
 */
 
 Route::get('/', [HomeController::class, 'home']);
-Route::get('/formating', [FormatController::class, 'format']);
 
+
+Route::middleware(['auth', 'userType:client'])->group(function () {
+
+    Route::get('/formating', [FormatController::class, 'format']);
+});
+
+
+Route::middleware(['auth', 'userType:user'])->group(function ()  {
+    Route::get('/publishing', [PublishController::class, 'publish']);
+});
 
 
 // Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -41,21 +51,14 @@ Route::get('/show-data', [FormatController::class, 'showData'])->name('show-data
 
 
 
-//  Route::middleware(['auth'])->group(function () {
-Route::get('/publishing', [PublishController::class, 'publish']);
-//  });
+
 Route::get('/download/{file}', [PublishController::class, 'download']);
 Route::post('get-comment',[CommentController::class, 'getComment'])->name('get-comment');
 Route::post('/submit-form', [CommentController::class, 'submitForm'])->name('submit.form');
 
 
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
