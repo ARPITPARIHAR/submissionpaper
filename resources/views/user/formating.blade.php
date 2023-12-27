@@ -75,7 +75,7 @@
             .drop-box {
                 margin-left: 5px; /* Adjusted margin for smaller screens */
                 margin-right: 5px; /* Adjusted margin for smaller screens */
-                height: 400px; /* Adjusted height for smaller screens */
+                height: 500px; /* Adjusted height for smaller screens */
             }
         }
     /* .center-message {

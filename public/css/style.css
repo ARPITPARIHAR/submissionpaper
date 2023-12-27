@@ -3,7 +3,7 @@
     --primary:white;
     --secondary: #34AD54;
     --light: #EEF9FF;
-    --dark: #091E3E;
+    /* --dark: #091E3E; */
 }
 
 
@@ -158,18 +158,18 @@ h6,
 @media (max-width: 991.98px) {
     .sticky-top.navbar-dark {
         position: relative;
-        background: #b50909;
+        background: #FFFFFF;
     }
 
     .navbar-dark .navbar-nav .nav-link,
     .navbar-dark .navbar-nav .nav-link.show,
     .sticky-top.navbar-dark .navbar-nav .nav-link {
         padding: 10px 0;
-        color: var(--dark);
+        color: white;
     }
 
     .navbar-dark .navbar-brand h1 {
-        color: var(--primary);
+        color:white;
     }
 }
 
@@ -195,7 +195,7 @@ h6,
         height: 2px;
         bottom: -1px;
         left: 50%;
-        background: var(--primary);
+        background:pink;
         transition: .5s;
     }
 

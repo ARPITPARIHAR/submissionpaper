@@ -132,21 +132,24 @@
     </div>
 </form>
 
-<div class="modal fade" id="comment-modal" aria-hidden="true">
+<div class="modal fade" id="comment-modal" data-backdrop="static" data-keyboard="false" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title mx-auto">Publish Form</h4>
-                <button type="button" class="close" aria-label="Close" onclick="closeModal()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <div class="callout" data-closable>
+                    <span class="close-button" aria-label="Close alert" onclick="closeCallout()">
+                        <span aria-hidden="true">&times;</span>
+                    </span>
+                </div>
             </div>
             <div class="modal-body" id="comment-modal-body">
-               
+                <!-- Your modal body content goes here -->
             </div>
         </div>
     </div>
 </div>
+
 
 @include('user.includes.footer')
 
@@ -168,3 +171,67 @@ function closeModal() {
 }
 
 </script>
+
+<style>
+    .callout {
+        position: relative;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        /* border: 1px solid #bd1717; */
+        border-radius: 5px;
+    }
+/* Remove blur effect styles */
+.modal-backdrop {
+    display: none !important;
+}
+
+    .close-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding:0.5;
+        cursor: pointer;
+        font-size:24px;
+    }
+</style>
+<script>
+    function closeModalAndCallout() {
+        // Close the modal
+        var modal = document.getElementById('comment-modal');
+        modal.style.display = 'none';
+
+        // Close the callout
+        var callout = document.querySelector('.callout');
+        callout.style.display = 'none';
+    }
+</script>
+
+<script>
+function closeCallout() {
+    // Close the modal
+    $('#comment-modal').modal('hide');
+    
+    // Optionally, you can remove the modal backdrop
+    // $('.modal-backdrop').remove();
+}
+
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#comment-modal').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+
+        // Function to close the modal
+        function closeModal() {
+            $('#comment-modal').modal('hide');
+        }
+
+        // Attach the closeModal function to the close button
+        $('.close-button').on('click', closeModal);
+    });
+</script>
+

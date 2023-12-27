@@ -28,9 +28,9 @@ Route::middleware(['auth', 'userType:client'])->group(function () {
 });
 
 
-Route::middleware(['auth', 'userType:user'])->group(function ()  {
+// Route::middleware(['auth', 'userType:user'])->group(function ()  {
     Route::get('/publishing', [PublishController::class, 'publish']);
-});
+// });
 
 
 // Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
