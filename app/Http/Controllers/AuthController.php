@@ -52,12 +52,13 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
-    
+
         $credentials = $request->only('email', 'password');
-    
-        if (Auth::attempt($credentials)) {
+        $remember = $request->has('remember'); // Check if "Remember Me" is checked
+
+        if (Auth::attempt($credentials, $remember)) {
             $user = Auth::user();
-    
+
             switch ($user->user_type) {
                 case 'admin':
                     return redirect('/admin-dashboard'); // Replace with your admin dashboard route
@@ -73,11 +74,12 @@ class AuthController extends Controller
                     break;
             }
         }
-    
+
         throw ValidationException::withMessages([
             'email' => [trans('auth.failed')],
         ]);
     }
+
     protected function authenticated(Request $request, $user)
 {
     if ($user->is_admin) {

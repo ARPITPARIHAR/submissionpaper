@@ -7,6 +7,7 @@ use App\Models\format;
 use App\Models\CommentTable;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class FormatController extends Controller
 {
@@ -26,27 +27,26 @@ class FormatController extends Controller
 
     public function store(Request $request)
     {
-        // Check if 'file' is not provided
+       
         if (!$request->hasFile('file')) {
             $request->session()->flash('error', 'Please select a file.');
             return redirect()->back();
         }
 
-        // Check if 'journalName' is blank
+     
         if (empty($request->journalName)) {
             $request->session()->flash('error', 'Journal Name cannot be blank.');
             return redirect()->back();
         }
 
-        // Check if 'title' is blank
+       
         if (empty($request->title)) {
             $request->session()->flash('error', 'Title cannot be blank.');
             return redirect()->back();
         }
 
-        // Additional validation if needed, e.g., file type check
-        // ...
-
+        
+        $user = Auth::user();
         $data = new format;
 
         $data->journal_name = $request->journalName;
@@ -57,23 +57,26 @@ class FormatController extends Controller
         $file->move(public_path('assets'), $filename);
         $data->file_content = $filename;
 
-        $data->save();
+        Auth::user()->formats()->save($data);
 
         $request->session()->flash('centerSuccess', 'Uploaded Successfully!');
         return redirect()->back();
     }
 
 
-         public function showData()
-         {
-             $formatData = Format::paginate(5);
-             $commentData = CommentTable::all();
-         
-         
-         
-             return view('user.showuploaddata')->with(['formatData' => $formatData, 'commentData' => $commentData]);
-         }
-         
+    public function showData()
+    {
+       
+        $user = Auth::user();
+    
+       
+        $formatData = $user->formats()->paginate(5);
+    
+        
+        $commentData = CommentTable::whereIn('format_id', $formatData->pluck('id'))->get();
+    
+        return view('user.showuploaddata')->with(['formatData' => $formatData, 'commentData' => $commentData]);
+    }
          
   
         }

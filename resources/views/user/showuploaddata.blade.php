@@ -215,7 +215,11 @@
      --}}
     
 @else
-    <p>No data available.</p>
+<div class="no-data" style="display: flex; align-items: center; justify-content: center; height: 50vh;">No data available.</div>
+
+
+
+
 @endif
 
 @include('user.includes.footer')

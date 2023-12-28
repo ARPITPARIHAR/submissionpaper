@@ -71,6 +71,20 @@
         border: none;
         border-radius: 4px;
     }
+
+    form {
+    display: inline;
+}
+
+.log button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    float: right;
+    margin-top: -300px !important; 
+}
+
     @media only screen and (max-width: 768px) {
             .drop-box {
                 margin-left: 5px; /* Adjusted margin for smaller screens */
@@ -131,6 +145,9 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 
+
+  
+    
     <script>
         function updateFileName(input) {
             // Get the selected file name
@@ -173,7 +190,12 @@
     </script>
 </form>
 
-
+<form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <div class="log">
+    <button type="submit">Logout</button>
+    </div>
+</form>
 
 </div>
 </div>
@@ -362,7 +384,7 @@
 <!-- Add these links to your HTML head -->
 <!-- Bootstrap CSS and JS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -372,24 +394,24 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
 
 @if(session('centerSuccess'))
-    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal fade" id="successModal" data-backdrop="static" data-keyboard="false" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="successModalLabel">Success!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <div class="callout" data-closable>
+                        <span class="close-button" aria-label="Close alert" onclick="closeCallout()">
+                            <span aria-hidden="true">&times;</span>
+                        </span>
+                    </div>
                 </div>
                 <div class="modal-body">
                     <p>{{ session('centerSuccess') }}</p>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -401,8 +423,47 @@
     </script>
 @endif
 
+<script>
+    $(document).ready(function () {
+        $('#successModal').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+
+        // Function to close the modal
+        function closeModal() {
+            $('#successModal').modal('hide');
+        }
+
+        // Attach the closeModal function to the close button
+        $('.close-button').on('click', closeModal);
+    });
+</script>
 
 
+<style>
+.callout {
+    position: relative;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    /* border: 1px solid #bd1717; */
+    border-radius: 5px;
+}
+/* Remove blur effect styles */
+.modal-backdrop {
+display: none !important;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding:0.5;
+    cursor: pointer;
+    font-size:24px;
+}
+
+</style>
 
 @include('user.includes.footer')
 

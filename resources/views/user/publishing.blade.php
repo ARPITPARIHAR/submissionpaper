@@ -43,7 +43,7 @@
     border: none;
     cursor: pointer;
     float: right;
-    margin-top: -140px !important; /* Adjust the margin-top value as needed */
+    margin-top: -300px !important; /* Adjust the margin-top value as needed */
 }
 
 
@@ -122,7 +122,7 @@
         </table>
         {{ $data->appends(Request::except('page'))->links('pagination::bootstrap-5') }}
     @else
-        <p>No data available.</p>
+    <div class="no-data" style="display: flex; align-items: center; justify-content: center; height: 50vh;">No data available.</div>
     @endif
 </div>
 <form method="POST" action="{{ route('logout') }}">

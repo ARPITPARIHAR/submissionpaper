@@ -15,4 +15,10 @@ class Format extends Model
     {
         return $this->hasMany(CommentTable::class, 'format_id', 'id');
     }
+
+    public function user()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
+
 }
