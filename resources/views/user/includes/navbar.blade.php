@@ -8,7 +8,8 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-    <!-- Favicon -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
    
 </head>
 
@@ -67,8 +68,21 @@
                     <a href="about" class="nav-item nav-link">About</a>
                     <a href="service" class="nav-item nav-link">Services</a>
                     <a href="contact" class="nav-item nav-link">Contact</a>
-                    <a href="formating" class="nav-item nav-link">Call for formating</a>
-                    <a href="publishing" class="nav-item nav-link">Paper for publishing</a>
+                    <a href="formating" class="nav-item nav-link">Submission</a>
+                    <a href="publishing" class="nav-item nav-link">Publication</a>
+
+                    <a href="adminusertable" class="nav-item nav-link">User Table</a>
+
+                   <!-- Navbar.blade.php -->
+<!-- Navbar.blade.php -->
+
+{{-- <li class="nav-item">
+    <a class="nav-link" href="{{ route('assign-role.form', ['userId' => $user->id]) }}">Assign Role</a>
+</li> --}}
+
+                    
+                 
+                   
                     {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</a>
                         <div class="dropdown-menu m-0">

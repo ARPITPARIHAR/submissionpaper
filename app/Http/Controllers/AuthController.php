@@ -11,11 +11,6 @@ class AuthController extends Controller
 {
 
 
-    // public function __construct()
-    // {
-    // $this->middleware('auth');
-    // }
-
     public function showRegistrationForm()
     {
         return view('auth.register');
@@ -26,15 +21,15 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
-            // 'password' => 'required|string|min:8|confirmed',
-            'user_type' => 'required|in:admin,user,client',
+             'password' => 'required|string|confirmed',
+            // 'user_type' => 'required|in:admin,user,client',
         ]);
     
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'user_type' => $request->user_type,
+            // 'user_type' => $request->user_type,
         ]);
     
         return redirect('/login')->with('success', 'You have successfully registered. Please log in.');
@@ -61,16 +56,16 @@ class AuthController extends Controller
 
             switch ($user->user_type) {
                 case 'admin':
-                    return redirect('/admin-dashboard'); // Replace with your admin dashboard route
+                    return redirect('/adminusertable'); 
                     break;
                 case 'user':
-                    return redirect('/publishing'); // Replace with your user dashboard route
+                    return redirect('/publishing'); 
                     break;
                 case 'client':
-                    return redirect('/formating'); // Replace with your client dashboard route
+                    return redirect('/formating'); 
                     break;
                 default:
-                    return redirect('/dashboard'); // Default redirect for unknown user types
+                    return redirect('/dashboard'); 
                     break;
             }
         }
@@ -97,7 +92,23 @@ class AuthController extends Controller
    
 
 // ...
+public function assignRole(Request $request, $userId) {
+    $request->validate([
+        'role' => 'required|in:admin,user,client',
+    ]);
 
+    $user = User::find($userId);
+
+    // Check if the authenticated user is an admin
+    if (Auth::user()->user_type == 'admin') {
+        $user->user_type = $request->role;
+        $user->save();
+
+        return redirect()->back()->with('success', 'Role assigned successfully.');
+    } else {
+        return redirect()->back()->with('error', 'You do not have permission to assign roles.');
+    }
+}
 
     public function logout(Request $request)
     {

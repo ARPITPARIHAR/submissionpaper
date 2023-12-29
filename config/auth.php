@@ -17,11 +17,15 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
-    
     'guards' => [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+    
+        'admin' => [  // Use 'admin' guard for your Admin model
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
     ],
     
@@ -30,14 +34,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-    ],
     
-    'passwords' => [
-        'users' => [
-            'provider' => 'users',
-            'table' => 'password_reset_tokens',
-            'expire' => 60,
-            'throttle' => 60,
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
         ],
     ],
 ];

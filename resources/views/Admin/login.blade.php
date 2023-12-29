@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="text-align: center;">{{ __('Login') }}</div>
+                <div class="card-header" style="text-align: center;">{{ __('Loginsssss') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -71,7 +71,7 @@
 </div>
 @if (Route::has('register'))
 <div class="text-center mt-3">
-    <p>Don't have an account? <a href="{{ route('register') }}">Register here</a>.</p>
+    <p>Don't have an account? <a href="{{ route('admin.register') }}">Register here</a>.</p>
 </div>
 @endif
 

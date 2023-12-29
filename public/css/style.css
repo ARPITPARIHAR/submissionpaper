@@ -147,11 +147,11 @@ h6,
 }
 
 .navbar-dark .navbar-brand h1 {
-    color: #FFFFFF;
+    color: #FFFFFF!important;
 }
 
 .navbar-dark .navbar-toggler {
-    color: var(--primary) !important;
+    color: white !important;
     border-color: var(--primary) !important;
 }
 
@@ -169,7 +169,7 @@ h6,
     }
 
     .navbar-dark .navbar-brand h1 {
-        color:white;
+        color:white!important;
     }
 }
 
@@ -210,7 +210,7 @@ h6,
     }
 
     .sticky-top.navbar-dark .navbar-brand h1 {
-        color:#FFFFFF ;
+        color:#FFFFFF !important;
     }
 }
 

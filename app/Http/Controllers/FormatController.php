@@ -64,19 +64,16 @@ class FormatController extends Controller
     }
 
 
-    public function showData()
-    {
-       
-        $user = Auth::user();
-    
-       
-        $formatData = $user->formats()->paginate(5);
-    
-        
-        $commentData = CommentTable::whereIn('format_id', $formatData->pluck('id'))->get();
-    
-        return view('user.showuploaddata')->with(['formatData' => $formatData, 'commentData' => $commentData]);
-    }
+         public function showData()
+         {
+             $formatData = Format::paginate(5);
+             $commentData = CommentTable::all();
+         
+         
+         
+             return view('user.showuploaddata')->with(['formatData' => $formatData, 'commentData' => $commentData]);
+         }
+         
          
   
         }

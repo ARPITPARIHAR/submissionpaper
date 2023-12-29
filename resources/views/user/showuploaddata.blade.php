@@ -90,6 +90,7 @@
                 <th>Stage</th>
                 <th>Formated File</th>
                 <th>Publish Url</th>
+                <th>Submission At</th>
                 
               
             </tr>
@@ -167,23 +168,25 @@
                         Pending
                     @endif
                 </td>
-<td>
-    @if (!is_null($commentData) && count($commentData) > $commentKey)
-        @php
-            $pdfPath = url('public/assets/' . $commentData[$commentKey]->pdf);
-        @endphp
 
-        @if (file_exists(public_path('assets/' . $commentData[$commentKey]->pdf)))
-            <a href="{{ $pdfPath }}" target="_blank">
-                <i class="fas fa-file-pdf pdf-icon"></i>
-                {{ $commentData[$commentKey]->pdf ?? '' }}
-            </a>
-        @else
-            File not found at path: {{ $pdfPath }}
-        @endif
-    @endif
-</td>
-
+                <td>
+                    @if (!is_null($commentData) && count($commentData) > $commentKey)
+                        @php
+                            $pdfPath = url('public/assets/' . $commentData[$commentKey]->pdf);
+                        @endphp
+                
+                        @if (file_exists(public_path('assets/' . $commentData[$commentKey]->pdf)))
+                            <a href="{{ $pdfPath }}" target="_blank" download="{{ $commentData[$commentKey]->pdf }}">
+                                <i class="fas fa-file-pdf pdf-icon"></i>
+                                {{ $commentData[$commentKey]->pdf ?? '' }}
+                            </a>
+                        @else
+                            File not found at path: {{ $pdfPath }}
+                        @endif
+                    @endif
+                </td>
+                
+    
 
 
 
@@ -192,7 +195,12 @@
                         <a href="{{ $commentData[$commentKey]->url ?? '' }}" target="_blank">{{ $commentData[$commentKey]->url ?? '' }}</a>
                     @endif
                 </td>
+
+
+                <td>{{ $item->created_at->format('d-m-y H:i:s') }}</td>
             </tr>
+
+            
         @endforeach
         
         
