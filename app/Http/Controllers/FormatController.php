@@ -13,10 +13,10 @@ class FormatController extends Controller
 {
 
 
-    public function __construct()
-    {
-        $this->middleware('auth')->except('format');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth')->except('format');
+    // }
     public function format(){
         return view("user.formating");
     }
@@ -46,7 +46,7 @@ class FormatController extends Controller
         }
 
         
-        $user = Auth::user();
+        // $user = Auth::user();
         $data = new format;
 
         $data->journal_name = $request->journalName;
@@ -56,8 +56,8 @@ class FormatController extends Controller
         $filename = date('YmdHi') . $file->getClientOriginalName();
         $file->move(public_path('assets'), $filename);
         $data->file_content = $filename;
-
-        Auth::user()->formats()->save($data);
+         $data->save();
+        // Auth::user()->formats()->save($data);
 
         $request->session()->flash('centerSuccess', 'Uploaded Successfully!');
         return redirect()->back();

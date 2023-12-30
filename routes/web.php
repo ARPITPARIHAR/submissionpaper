@@ -40,10 +40,10 @@ Route::get('/', [HomeController::class, 'home']);
 
 //format.................
 
-Route::middleware(['auth', 'userType:client'])->group(function () {
+// Route::middleware(['auth', 'userType:client'])->group(function () {
 
     Route::get('/formating', [FormatController::class, 'format']);
- });
+//  });
 
 Route::post('/upload', [FormatController::class, 'store'])->name('upload.store');
 Route::get('/show-data', [FormatController::class, 'showData']);
@@ -53,23 +53,23 @@ Route::get('/show-data', [FormatController::class, 'showData'])->name('show-data
 
 //publish....................
 
-Route::middleware(['auth', 'userType:user'])->group(function () {
+// Route::middleware(['auth', 'userType:user'])->group(function () {
     Route::get('/publishing', [PublishController::class, 'publish']);
-});
+// });
 
 Route::get('/download/{file}', [PublishController::class, 'download']);
 Route::post('get-comment',[CommentController::class, 'getComment'])->name('get-comment');
 Route::post('/submit-form', [CommentController::class, 'submitForm'])->name('submit.form');
-
+Route::post('update-status',[CommentController::class, 'updateStatus'])->name('update-status');
 
 
 
   
 //admin.................
 Route::middleware(['auth', 'userType:admin'])->group(function () {
-    Route::get('/adminusertable', [AdminActionsController::class, 'showUserTable'])->name('adminusertable');
+    // Route::get('/adminusertable', [AdminActionsController::class, 'showUserTable'])->name('adminusertable');
     // Route::get('/publishing', [PublishController::class, 'publish']);
-    Route::get('/formating', [FormatController::class, 'format']);
+    // Route::get('/formating', [FormatController::class, 'format']);
 });
 
     Route::get('/adminchangepassword{userId}', [AdminActionsController::class, 'showChangePasswordForm'])->name('admin.changePassword');

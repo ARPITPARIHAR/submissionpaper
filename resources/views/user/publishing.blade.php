@@ -99,13 +99,9 @@
     @endif
 </td>
 
-                        <td>
-                            @if($item->submitted == 1)
-                                <input type="checkbox" checked='checked' style="width: 20px; height: 20px;" />
-                            @elseif($item->submitted == 0)
-                            @else
-                                <input type="checkbox" style="width: 20px; height: 20px;" />
-                            @endif
+                        <td>                            
+                            <input type="checkbox" @if($item->submitted == 1) checked='checked' @endif onchange="changeStatus(this)" value="{{$item->id}}" style="width: 20px; height: 20px;" />
+                            
                         </td>
                         <td>
                        <a href="{{ asset('/download/' . $item->file_content) }}">Download</a>
@@ -162,6 +158,21 @@
         }, function(data) {
             $('#comment-modal').modal('show');
             $('#comment-modal-body').html(data);
+        });
+    }
+    function changeStatus(el) {
+        if(el.checked){
+            var status = 1;
+        }
+        else{
+            var status = 0;
+        }
+        $.post("{{route('update-status')}}", {
+            _token: '{{ csrf_token() }}',
+            id: el.value,
+            status:status
+        }, function(data) {
+            location.reload();
         });
     }
 </script>

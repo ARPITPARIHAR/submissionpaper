@@ -8,10 +8,13 @@ use App\Models\format;
 class CommentController extends Controller
 {
     public function submitForm(Request $request)
-{
+    {
     
-           
+
+            $item=format::find($request->id);
+          
             $commentData = new CommentTable;
+            $commentData->format_id=$item->id;
             $commentData->comment = $request->comment;
             $commentData->processed = $request->processed;
             // $commentData->file_id = $request->fileId; 
@@ -25,8 +28,8 @@ class CommentController extends Controller
             $commentData->url = $request->url;
             $commentData->save();
 
-                return redirect()->back();     
-              } 
+            return redirect()->back();     
+    } 
             
         
     
@@ -34,6 +37,12 @@ class CommentController extends Controller
         
         $item=format::find($request->id);
         return view('partials.comment-modal-body',compact('item'));
+    }
+    function updateStatus(Request $request)  {
+        $item=format::find($request->id);
+        $item->submitted=$request->status;
+        $item->update();
+        return 1;
     }
 }
  

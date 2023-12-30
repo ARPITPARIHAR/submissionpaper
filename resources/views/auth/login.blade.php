@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="text-align: center;">{{ __('Login') }}</div>
+                <div class="card-header" style="text-align: center; background-color:red;">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -54,14 +54,16 @@
                         </div>
                     </div>
                     <br>
-                    
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-                            </div>
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn loginYellow mb-2 me-3">
+                                {{ __('Login') }}
+                            </button>
                         </div>
+                    </div>
+                    
+                    
+                    
                     </form>
                     
                 </div>
@@ -85,3 +87,28 @@
 @section('script')
     <!-- Add your scripts here if needed -->
 @endsection
+
+
+<style>
+    button.loginYellow {
+        min-width: 110px!important;
+        height: 36px!important;
+        color: #fff;
+        line-height: 24px;
+        border-radius: 10px;
+        background: #ff6f00;
+        margin-top: 20px;
+        font-family: medium;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: .9px;
+        transition: all .5s;
+        display: inline-block; /* Add this line to ensure the inline-block display */
+        text-align: center; /* Add this line to center the text within the button */
+        text-decoration: none; /* Add this line to remove underlines */
+        padding: 8px 16px; /* Adjust padding as needed */
+        border: none; /* Add this line to remove default button border */
+    }
+</style>
+
