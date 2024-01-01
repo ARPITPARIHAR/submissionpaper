@@ -114,7 +114,7 @@
                 white
             @endif;">
         
-                {{-- Debugging output --}}
+                
                 <td>{{ $serialNumber }}</td>
                 <td>{{ $item->journal_name ?? '' }}</td>
                 <td>{{ $item->title ?? '' }}</td>
@@ -133,7 +133,7 @@
                 case 'pdf':
                     $iconClass = 'fa-file-pdf';
                     break;
-                // Add more cases for other file types if needed
+               
                 default:
                     $iconClass = 'fa-file'; // Default icon class
                     break;

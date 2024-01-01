@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -28,8 +27,7 @@ class User extends Authenticatable
     ];
 
     public function formats()
-{
-    return $this->hasMany(Format::class);
-}
-
+    {
+        return $this->hasMany(Format::class, 'user_id', 'id'); 
+    }
 }

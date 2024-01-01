@@ -4,14 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CommentTable;
-use App\Models\format;
+use App\Models\Format;
+use Illuminate\Validation\ValidationException;
+
+
 class CommentController extends Controller
 {
     public function submitForm(Request $request)
     {
-    
 
-            $item=format::find($request->id);
+        $request->validate([
+          
+            'processed' => 'required|in:published,pending',
+           
+            'pdf_file' => 'required|mimes:pdf',
+            'url' => 'required|url',
+        ]);
+
+        
+       
+            $item=Format::find($request->id);
           
             $commentData = new CommentTable;
             $commentData->format_id=$item->id;
@@ -27,7 +39,8 @@ class CommentController extends Controller
           
             $commentData->url = $request->url;
             $commentData->save();
-
+            $commentData->update(['submitted' => true]);
+          
             return redirect()->back();     
     } 
             
@@ -35,11 +48,11 @@ class CommentController extends Controller
     
     function getComment(Request $request){
         
-        $item=format::find($request->id);
+        $item=Format::find($request->id);
         return view('partials.comment-modal-body',compact('item'));
     }
     function updateStatus(Request $request)  {
-        $item=format::find($request->id);
+        $item=Format::find($request->id);
         $item->submitted=$request->status;
         $item->update();
         return 1;

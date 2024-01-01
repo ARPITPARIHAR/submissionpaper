@@ -98,12 +98,17 @@
         No file available
     @endif
 </td>
+<td id="submissionStatus_{{ $item->id }}">
+    @if (optional($item->commentData)->submitted)
+        <i class="fas fa-check" style="color: blue;"></i>
+    @else
+        X
+    @endif
+</td>
 
-                        <td>                            
-                            <input type="checkbox" @if($item->submitted == 1) checked='checked' @endif onchange="changeStatus(this)" value="{{$item->id}}" style="width: 20px; height: 20px;" />
-                            
-                        </td>
-                        <td>
+
+
+        <td>
                        <a href="{{ asset('/download/' . $item->file_content) }}">Download</a>
 
                         </td>
@@ -160,6 +165,8 @@
             $('#comment-modal-body').html(data);
         });
     }
+
+    
     function changeStatus(el) {
         if(el.checked){
             var status = 1;
@@ -245,4 +252,5 @@ function closeCallout() {
         $('.close-button').on('click', closeModal);
     });
 </script>
+
 

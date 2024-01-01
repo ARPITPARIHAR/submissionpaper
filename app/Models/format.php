@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,7 +8,9 @@ class Format extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['journal_name', 'title', 'file_content', 'status', 'pdf', 'url'];
+    protected $table = 'formats';
+
+    protected $fillable = ['journal_name', 'title', 'file_content', 'status', 'pdf', 'url', 'user_id'];
 
     public function comments()
     {
@@ -17,8 +18,7 @@ class Format extends Model
     }
 
     public function user()
-{
-    return $this->belongsTo(User::class, 'user_id');
-}
-
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id'); 
+    }
 }
