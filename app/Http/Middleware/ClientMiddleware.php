@@ -8,8 +8,7 @@ class ClientMiddleware
 {
     public function handle($request, Closure $next)
     {
-        // Your logic for client middleware
-        if (auth()->check() && auth()->user()->user_type == 'client') {
+        if (auth()->check() && in_array(auth()->user()->user_type, ['client', 'admin'])) {
             return $next($request);
         }
 

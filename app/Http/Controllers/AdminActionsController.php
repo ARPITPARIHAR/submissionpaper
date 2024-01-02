@@ -19,7 +19,7 @@ class AdminActionsController extends Controller
     public function showChangePasswordForm($userId)
 {
     $user = User::findOrFail($userId);
-    return view('admin.changepassword', compact('user'));
+    return view('Admin.changepassword', compact('user'));
     
 }
 

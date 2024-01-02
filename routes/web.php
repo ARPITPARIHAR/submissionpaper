@@ -40,9 +40,9 @@ Route::get('/', [HomeController::class, 'home']);
 
 //format.................
 
-//  Route::middleware(['auth', 'client'])->group(function () {
+Route::middleware(['auth', 'client'])->group(function () {
     Route::get('/formating', [FormatController::class, 'format']);
-//  });
+});
 
 Route::post('/upload', [FormatController::class, 'store'])->name('upload.store');
 Route::get('/show-data', [FormatController::class, 'showData']);
@@ -52,9 +52,9 @@ Route::get('/show-data', [FormatController::class, 'showData'])->name('show-data
 
 //publish....................
 
-// Route::middleware(['auth', 'user'])->group(function () {
+ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/publishing', [PublishController::class, 'publish']);
-// });
+ });
 
 Route::get('/download/{file}', [PublishController::class, 'download']);
 Route::post('get-comment',[CommentController::class, 'getComment'])->name('get-comment');
@@ -66,11 +66,11 @@ Route::post('update-status',[CommentController::class, 'updateStatus'])->name('u
   
 //admin.................
 
-//  Route::middleware(['auth', 'admin'])->group(function () {
+  Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/adminusertable', [AdminActionsController::class, 'showUserTable'])->name('adminusertable');
     //  Route::get('/publishing', [PublishController::class, 'publish']);
-    //   Route::get('/formating', [FormatController::class, 'format']);
-//  });
+        //  Route::get('/formating', [FormatController::class, 'format']);
+   });
 
 
     Route::get('/adminchangepassword{userId}', [AdminActionsController::class, 'showChangePasswordForm'])->name('admin.changePassword');
