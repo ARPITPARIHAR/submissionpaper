@@ -21,6 +21,9 @@ class FormatController extends Controller
         return view("user.formating");
     }
 
+    public function multi(){
+        return view("user.multiformating");
+    }
 
 
 

@@ -67,7 +67,7 @@
                     <a href="/" class="nav-item nav-link">Home</a>
                     <a href="about" class="nav-item nav-link">About</a>
                     <a href="service" class="nav-item nav-link">Services</a>
-                    <a href="contact" class="nav-item nav-link">Contact</a>
+                    <a href="multi" class="nav-item nav-link">Contact</a>
                     <a href="formating" class="nav-item nav-link">Submission</a>
                     <a href="publishing" class="nav-item nav-link">Publication</a>
 

@@ -44,7 +44,9 @@
 <!-- Include SweetAlert library -->
 <!-- Include SweetAlert library -->
 <!-- Include SweetAlert library -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<!-- Include SweetAlert library -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
@@ -64,34 +66,15 @@
 
             event.preventDefault(); // Prevent form submission
         } else {
-            // If form is valid, show a success message and then change button color
+            // If form is valid, you can perform additional actions or show a confirmation
             Swal.fire({
                 icon: 'success',
                 title: 'Success!',
                 text: 'Form submitted successfully!',
-            }).then(() => {
-                // Set the success flag in localStorage
-                localStorage.setItem('commentFormSuccess', 'true');
-
-                // Get the data-id associated with the form
-                var formDataId = document.getElementById('id').value;
-
-                // Change the color of the Comment button on success
-                var commentButton = $('[data-id="' + formDataId + '"] .btn-publish');
-                commentButton.removeClass('btn-primary'); // Remove existing class
-                commentButton.addClass('btn-success'); // Add success class
-
-                // Add a class to the table row for visual indication
-                var tableRow = $('[data-id="' + formDataId + '"]');
-                tableRow.addClass('submission-accepted');
-
-                // Delay for 2 seconds (2000 milliseconds)
-                setTimeout(function () {
-                    // You can redirect or perform other actions here
-                    // Example: window.location.href = 'your_redirect_url';
-                    console.log('Form submitted successfully!');
-                }, 2000);
             });
+
+            // You can also redirect or perform other actions after a successful submission
         }
     });
 </script>
+

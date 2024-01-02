@@ -14,7 +14,7 @@
     <style>
        
        .drop-box {
-    border: 2px dashed #4f37b8;
+    border: 2px dashed #353914;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
@@ -28,6 +28,7 @@
     height: 500px; 
     margin-left:350px; 
     margin-right:350px; 
+    background-color: #ecf3fc;
 }
 
 
@@ -52,13 +53,13 @@
         margin-top: 6px;
         margin-bottom: 12px;
         box-sizing: border-box;
-        border: 1px solid #09e540;
+        border: 1px solid #cb0f54;
         border-radius: 10px;
         transition: border-color 0.3s;
     }
 
     input:focus {
-        border-color: #4CAF50;
+        border-color: #07154fef;
         outline: none;
     }
     #fileInput {
@@ -80,12 +81,15 @@
 }
 
 .log button {
-    background-color: #dc3545;
+    background-color: #2a1a66;
     color: #fff;
     border: none;
     cursor: pointer;
     float: right;
+    font-size: 18px;
     margin-top: -500px !important; 
+    padding: 10px 15px;
+    border-radius: 10px;
 }
 
     @media only screen and (max-width: 768px) {
@@ -139,11 +143,11 @@
     @csrf
 
     <div class="drop-box" id="dropArea" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <label for="journalName" style=" color: #a00000; font-size: 18px; margin-bottom: 8px; display: block;">Journal Name</label>
+        <label for="journalName" style=" color: #120a0a; font-size: 18px; margin-bottom: 8px; display: block;">Journal Name</label>
 
         <input type="text" name="journalName" id="journalName">
 
-        <label for="title" style=" color: #a00000; font-size: 18px; margin-bottom: 8px; display: block;">Title Name:</label>
+        <label for="title" style=" color: #120a0a; font-size: 18px; margin-bottom: 8px; display: block;">Title Name</label>
         <input type="text" name="title" id="title">
         <br>
         <i class="icon fas fa-cloud-upload-alt"></i>
@@ -227,7 +231,7 @@
       
     
 
-<button id="showDataBtn" class="btn btn-dark" style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto;">Your Uploaded Data</button>
+<button id="showDataBtn" class="btn btn-dark" style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto; border-radius: 10px 10px 0 10px;">Your Uploaded Data</button>
 
 
 

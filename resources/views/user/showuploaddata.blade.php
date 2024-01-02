@@ -72,6 +72,19 @@
         .pagination .page-link {
             font-size: 14px; /* Adjust the font size as needed */
         }
+
+        body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0; /* Set your desired background color */
+}
+
+
+
+        
     }
 </style>
 
@@ -217,6 +230,11 @@
     </table>
     </div>
     {{ $formatData->appends(Request::except('page'))->links('pagination::bootstrap-5') }}
+     
+    <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+        <a href="/formating" class="btn btn-warning" role="button">Back</a>
+    </div>
+    
 
     {{-- <div class="pagination">
         {{ $formatData->appends(Request::except('page'))->links() }}

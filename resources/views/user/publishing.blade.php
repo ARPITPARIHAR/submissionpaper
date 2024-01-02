@@ -32,8 +32,7 @@
     table.table th {
         background-color: #52a0a7;
         color: white;
-        text-align: center;    
-    }
+        text-align: center;    }
 
     form {
         display: inline;
@@ -51,81 +50,88 @@
     .published-row {
         background-color: lightgreen;
     }
-    
+
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+    /* Add a new class for the green background */
+    .submission-accepted {
+        background-color: #1a991a !important; /* Adjust the background color as needed */
+    }
+</style>
 
 <div style="overflow-x: auto;">
     <h1>Data Table</h1>
 
-    @if($data !== null && count($data) > 0)
-    <table class="table">
-        <thead>
-            <tr>
-                <th>S.N.</th>
-                <th>Journal Name</th>
-                <th>Title Name</th>
-                <th>File Name</th>
-                {{-- <th>Published</th> --}}
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Add this script to your page -->
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+@if($data !== null && count($data) > 0)
+<table class="table">
+    <thead>
+        <tr>
+            <th>S.N.</th>
+            <th>Journal Name</th>
+            <th>Title Name</th>
+            <th>File Name</th>
+            <th>Published</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Add this script to your page -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-            @foreach ($data as $item)
-            @php
-                $commentKey = $item->id; // Assuming $commentKey is derived from the item's ID
-                $processed = isset($commentData[$commentKey]) ? $commentData[$commentKey]->processed : '';
-                $rowStyle = ($processed === 'published') ? 'background-color: lightgreen;' : '';
-            @endphp
-           
-           <tr class="submission-accepted" data-id="{{ $item->id }}">
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->journal_name ?? '' }}</td>
-                    <td>{{ $item->title ?? '' }}</td>
-                    <td>
-                        @if (!is_null($item->file_content))
-                            @php
-                                $fileExtension = pathinfo($item->file_content, PATHINFO_EXTENSION);
-                                $iconClass = '';
-                                $iconColor = '#007BFF'; // Blue color
-                                switch ($fileExtension) {
-                                    case 'doc':
-                                    case 'docx':
-                                        $iconClass = 'fa-file-word';
-                                        break;
-                                    case 'pdf':
-                                        $iconClass = 'fa-file-pdf';
-                                        break;
-                                    // Add more cases for other file types if needed
-                                    default:
-                                        $iconClass = 'fa-file'; // Default icon class
-                                        break;
-                                }
-                            @endphp
-                            <i class="fas {{ $iconClass }} file-icon" style="font-size: 24px; color: {{ $iconColor }}"></i>
-                            {{ $item->file_content }}
-                        @else
-                            No file available
-                        @endif
-                    </td>
-                    
-                    <td>
-                        <a href="{{ asset('/download/' . $item->file_content) }}">Download</a>
-                    </td>
-                    <td>
-                        <a href="#" onclick="openCommentModal({{$item->id}})" data-id="{{ $item->id }}" class="btn btn-primary btn-publish">Comment</a>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-    {{ $data->appends(Request::except('page'))->links('pagination::bootstrap-5') }}
-    @else
-    <div class="no-data" style="display: flex; align-items: center; justify-content: center; height: 50vh;">No data available.</div>
-    @endif
+        @foreach ($data as $item)
+        @php
+            $commentKey = $item->id; // Assuming $commentKey is derived from the item's ID
+            $processed = isset($commentData[$commentKey]) ? $commentData[$commentKey]->processed : '';
+            $rowStyle = ($processed === 'published') ? 'background-color: lightgreen;' : '';
+        @endphp
+        <tr style="{{ $rowStyle }}">
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $item->journal_name ?? '' }}</td>
+                <td>{{ $item->title ?? '' }}</td>
+                <td>
+                    @if (!is_null($item->file_content))
+                        @php
+                            $fileExtension = pathinfo($item->file_content, PATHINFO_EXTENSION);
+                            $iconClass = '';
+                            $iconColor = '#007BFF'; // Blue color
+                            switch ($fileExtension) {
+                                case 'doc':
+                                case 'docx':
+                                    $iconClass = 'fa-file-word';
+                                    break;
+                                case 'pdf':
+                                    $iconClass = 'fa-file-pdf';
+                                    break;
+                                // Add more cases for other file types if needed
+                                default:
+                                    $iconClass = 'fa-file'; // Default icon class
+                                    break;
+                            }
+                        @endphp
+                        <i class="fas {{ $iconClass }} file-icon" style="font-size: 24px; color: {{ $iconColor }}"></i>
+                        {{ $item->file_content }}
+                    @else
+                        No file available
+                    @endif
+                </td>
+                <td></td>
+                <td>
+                    <a href="{{ asset('/download/' . $item->file_content) }}">Download</a>
+                </td>
+                <td>
+                    <a href="#" onclick="openCommentModal({{$item->id}})" data-id="{{ $item->id }}" class="btn btn-primary btn-publish">Comment</a>
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
+{{ $data->appends(Request::except('page'))->links('pagination::bootstrap-5') }}
+@else
+<div class="no-data" style="display: flex; align-items: center; justify-content: center; height: 50vh;">No data available.</div>
+@endif
 </div>
 
 <form method="POST" action="{{ route('logout') }}">
@@ -228,9 +234,6 @@
         cursor: pointer;
         font-size: 24px;
     }
-    
-    /* Add a new class for the green background */
-  
 </style>
 
 <script>
@@ -272,19 +275,14 @@
     });
 </script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Check for the success flag in localStorage
-        var commentFormSuccess = localStorage.getItem('commentFormSuccess');
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        if (commentFormSuccess === 'true') {
-            // Update the color of the Comment button on success
-            var commentButton = document.querySelector('.btn-publish'); // Update selector as needed
-            commentButton.classList.remove('btn-primary');
-            commentButton.classList.add('btn-success');
+<!-- Script to update tick colors -->
 
-            // Remove the success flag from localStorage to avoid changing color again
-            localStorage.removeItem('commentFormSuccess');
-        }
-    });
-</script>
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include SweetAlert library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Script to update tick colors -->

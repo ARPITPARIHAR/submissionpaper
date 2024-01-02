@@ -2,10 +2,8 @@
 @section('meta_title', '')
 @include('user.includes.navbar')
 
-<div class="table-container" style="margin-top: 80px;">
-    <h3 style="text-align: center;">User Table</h3>
-
-    <table class="table">
+<div class="table-container" style="margin-top: 120px; background-color: #f0f8ff; padding: 20px; border-radius: 10px;">
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th>S.N.</th>
@@ -49,25 +47,37 @@
 
 <form method="POST" action="{{ route('logout') }}">
     @csrf
-    <div class="log">
-    <button type="submit">Logout</button>
+    <div class="log" style="text-align: right; margin-top: 10px;">
+        <button type="submit" class="btn btn-warning">Logout</button>
     </div>
 </form>
 
 <style>
-form {
-    display: inline;
-}
+    .table-container {
+        margin-top: 30px;
+    }
 
-.log button {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    float: right;
-    margin-top: -180px !important; /* Adjust the margin-top value as needed */
-}
+    .table th, .table td {
+        text-align: center;
+    }
 
+    .table-hover tbody tr:hover {
+        background-color: #d3eafd;
+    }
+
+    .btn {
+        margin-right: 5px;
+    }
+
+    .log button {
+        background-color: #ff9800;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 10px 15px;
+        border-radius: 10px;
+    }
 </style>
 
 @include('user.includes.footer')
