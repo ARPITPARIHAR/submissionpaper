@@ -22,114 +22,116 @@
         margin-top: 80px; /* top/bottom margin 20px, left/right margins auto */
     }
 
-    table.table th, table.table td {
+    table.table th,
+    table.table td {
         border: 1px solid #ddd;
         padding: 8px;
         text-align: left;
     }
 
     table.table th {
-        background-color: #5b9d4f;
-        color:white;
+        background-color: #52a0a7;
+        color: white;
+        text-align: center;    
     }
 
     form {
-    display: inline;
-}
+        display: inline;
+    }
 
-.log button {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    float: right;
-    margin-top: -200px !important; /* Adjust the margin-top value as needed */
-}
+    .log button {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        float: right;
+        margin-top: -200px !important; /* Adjust the margin-top value as needed */
+    }
 
-
+    .published-row {
+        background-color: lightgreen;
+    }
+    
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <div style="overflow-x: auto;">
     <h1>Data Table</h1>
 
     @if($data !== null && count($data) > 0)
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>S.N.</th>
-                    <th>Journal Name</th>
-                    <th>Title Name</th>
-                    <th>File Name</th>
-                    <th>Published</th>
-                    <th>Action</th>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>S.N.</th>
+                <th>Journal Name</th>
+                <th>Title Name</th>
+                <th>File Name</th>
+                {{-- <th>Published</th> --}}
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Add this script to your page -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+            @foreach ($data as $item)
+            @php
+                $commentKey = $item->id; // Assuming $commentKey is derived from the item's ID
+                $processed = isset($commentData[$commentKey]) ? $commentData[$commentKey]->processed : '';
+                $rowStyle = ($processed === 'published') ? 'background-color: lightgreen;' : '';
+            @endphp
+           
+           <tr class="submission-accepted" data-id="{{ $item->id }}">
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->journal_name ?? '' }}</td>
+                    <td>{{ $item->title ?? '' }}</td>
+                    <td>
+                        @if (!is_null($item->file_content))
+                            @php
+                                $fileExtension = pathinfo($item->file_content, PATHINFO_EXTENSION);
+                                $iconClass = '';
+                                $iconColor = '#007BFF'; // Blue color
+                                switch ($fileExtension) {
+                                    case 'doc':
+                                    case 'docx':
+                                        $iconClass = 'fa-file-word';
+                                        break;
+                                    case 'pdf':
+                                        $iconClass = 'fa-file-pdf';
+                                        break;
+                                    // Add more cases for other file types if needed
+                                    default:
+                                        $iconClass = 'fa-file'; // Default icon class
+                                        break;
+                                }
+                            @endphp
+                            <i class="fas {{ $iconClass }} file-icon" style="font-size: 24px; color: {{ $iconColor }}"></i>
+                            {{ $item->file_content }}
+                        @else
+                            No file available
+                        @endif
+                    </td>
+                    
+                    <td>
+                        <a href="{{ asset('/download/' . $item->file_content) }}">Download</a>
+                    </td>
+                    <td>
+                        <a href="#" onclick="openCommentModal({{$item->id}})" data-id="{{ $item->id }}" class="btn btn-primary btn-publish">Comment</a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach ($data as $key => $item)
-                    <tr>
-                        <td>{{ $key + 1 }}</td>
-                        <td>{{ $item->journal_name ?? '' }}</td>
-                        <td>{{ $item->title ?? '' }}</td>
-                       <td>
-    @if (!is_null($item->file_content))
-        @php
-            $fileExtension = pathinfo($item->file_content, PATHINFO_EXTENSION);
-            $iconClass = '';
-            $iconColor = '#007BFF'; // Blue color
-            
-            switch ($fileExtension) {
-                case 'doc':
-                case 'docx':
-                    $iconClass = 'fa-file-word';
-                    break;
-                case 'pdf':
-                    $iconClass = 'fa-file-pdf';
-                    break;
-                // Add more cases for other file types if needed
-                default:
-                    $iconClass = 'fa-file'; // Default icon class
-                    break;
-            }
-        @endphp
-
-        <i class="fas {{ $iconClass }} file-icon" style="font-size: 24px; color: {{ $iconColor }}"></i>
-        {{ $item->file_content }}
-    @else
-        No file available
-    @endif
-</td>
-<td id="submissionStatus_{{ $item->id }}">
-    @if (optional($item->commentData)->submitted)
-        <i class="fas fa-check" style="color: blue;"></i>
-    @else
-        X
-    @endif
-</td>
-
-
-
-        <td>
-                       <a href="{{ asset('/download/' . $item->file_content) }}">Download</a>
-
-                        </td>
-                        <td>
-                            <a href="#" onclick="openCommentModal({{$item->id}})" data-id="{{ $item->id }}" class="btn btn-primary btn-publish">Comment</a>
-
-                            
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        {{ $data->appends(Request::except('page'))->links('pagination::bootstrap-5') }}
+            @endforeach
+        </tbody>
+    </table>
+    {{ $data->appends(Request::except('page'))->links('pagination::bootstrap-5') }}
     @else
     <div class="no-data" style="display: flex; align-items: center; justify-content: center; height: 50vh;">No data available.</div>
     @endif
 </div>
+
 <form method="POST" action="{{ route('logout') }}">
     @csrf
     <div class="log">
-    <button type="submit">Logout</button>
+        <button type="submit">Logout</button>
     </div>
 </form>
 
@@ -151,43 +153,57 @@
     </div>
 </div>
 
-
 @include('user.includes.footer')
 
 <script>
     function openCommentModal(id) {
-       $('#comment-modal-body').html(null);
-       $.post("{{route('get-comment')}}", {
+        $('#comment-modal-body').html(null);
+        $.post("{{route('get-comment')}}", {
             _token: '{{ csrf_token() }}',
             id: id
         }, function(data) {
             $('#comment-modal').modal('show');
             $('#comment-modal-body').html(data);
+
+            // Assuming there is a variable like $commentData available with the comment data
+            var commentData = {!! json_encode($commentData ?? []) !!};
+
+            // Get the comment button in the table row
+            var commentButton = $('[data-id="' + id + '"]').find('.btn-publish');
+
+            // Find the comment status in the commentData array
+            var commentStatus = commentData[id] ? commentData[id].processed : '';
+
+            // Set color based on comment status
+            if (commentStatus === 'published') {
+                commentButton.removeClass('btn-primary').addClass('btn-success');
+            } else {
+                commentButton.removeClass('btn-success').addClass('btn-primary');
+            }
         });
     }
 
-    
     function changeStatus(el) {
-        if(el.checked){
+        if (el.checked) {
             var status = 1;
-        }
-        else{
+        } else {
             var status = 0;
         }
         $.post("{{route('update-status')}}", {
             _token: '{{ csrf_token() }}',
             id: el.value,
-            status:status
+            status: status
         }, function(data) {
             location.reload();
         });
     }
 </script>
-<script>
-function closeModal() {
-    $('#ajaxModelexa').modal('hide');
-}
 
+
+<script>
+    function closeModal() {
+        $('#ajaxModelexa').modal('hide');
+    }
 </script>
 
 <style>
@@ -198,20 +214,25 @@ function closeModal() {
         /* border: 1px solid #bd1717; */
         border-radius: 5px;
     }
-/* Remove blur effect styles */
-.modal-backdrop {
-    display: none !important;
-}
+
+    /* Remove blur effect styles */
+    .modal-backdrop {
+        display: none !important;
+    }
 
     .close-button {
         position: absolute;
         top: 0;
         right: 0;
-        padding:0.5;
+        padding: 0.5;
         cursor: pointer;
-        font-size:24px;
+        font-size: 24px;
     }
+    
+    /* Add a new class for the green background */
+  
 </style>
+
 <script>
     function closeModalAndCallout() {
         // Close the modal
@@ -225,16 +246,14 @@ function closeModal() {
 </script>
 
 <script>
-function closeCallout() {
-    // Close the modal
-    $('#comment-modal').modal('hide');
-    
-    // Optionally, you can remove the modal backdrop
-    // $('.modal-backdrop').remove();
-}
+    function closeCallout() {
+        // Close the modal
+        $('#comment-modal').modal('hide');
 
+        // Optionally, you can remove the modal backdrop
+        // $('.modal-backdrop').remove();
+    }
 </script>
-
 
 <script>
     $(document).ready(function () {
@@ -253,4 +272,19 @@ function closeCallout() {
     });
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Check for the success flag in localStorage
+        var commentFormSuccess = localStorage.getItem('commentFormSuccess');
 
+        if (commentFormSuccess === 'true') {
+            // Update the color of the Comment button on success
+            var commentButton = document.querySelector('.btn-publish'); // Update selector as needed
+            commentButton.classList.remove('btn-primary');
+            commentButton.classList.add('btn-success');
+
+            // Remove the success flag from localStorage to avoid changing color again
+            localStorage.removeItem('commentFormSuccess');
+        }
+    });
+</script>

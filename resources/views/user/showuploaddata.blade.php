@@ -27,11 +27,13 @@
         padding: 8px;
         text-align: left;
     }
-
     table.table th {
-        background-color: #06A3DA;
-        color: white;
-    }
+    background-color: #06A3DA;
+    color: white;
+    text-align: center; /* Add this line to center-align text */
+}
+
+    
     .pagination {
     display: flex;
     justify-content: center;
@@ -107,7 +109,7 @@
         
             <tr style="background-color: 
             @if($status === 'downloaded' && $processed === 'published')
-                lightblue
+                lightgreen
             @elseif($status === 'downloaded' || $processed === 'pending')
                 yellow
             @else
@@ -161,6 +163,8 @@
                     @if (!is_null($commentData) && count($commentData) > $commentKey)
                         @if ($processed === 'published')
                             Published
+                        @elseif ($status === 'downloaded')
+                            Downloaded
                         @else
                             Pending
                         @endif
@@ -168,6 +172,7 @@
                         Pending
                     @endif
                 </td>
+                
 
                 <td>
                     @if (!is_null($commentData) && count($commentData) > $commentKey)

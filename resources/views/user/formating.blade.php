@@ -8,10 +8,13 @@
     <title>Drag and Drop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+
+    
     <style>
        
        .drop-box {
-    border: 2px dashed #1e0882;
+    border: 2px dashed #4f37b8;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
@@ -113,6 +116,18 @@
             font-size: 18px;
             color: white;
         } */ */
+        .rounded-button {
+    border-radius: 10px;
+}
+
+
+.label[for="journalName"] {
+    font-weight: bold !important;
+    color: #007BFF !important;
+    font-size: 16px !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+}
 
         
     </style>
@@ -124,10 +139,11 @@
     @csrf
 
     <div class="drop-box" id="dropArea" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <label for="journalName">Journal Name:</label>
+        <label for="journalName" style=" color: #a00000; font-size: 18px; margin-bottom: 8px; display: block;">Journal Name</label>
+
         <input type="text" name="journalName" id="journalName">
 
-        <label for="title">Title Name:</label>
+        <label for="title" style=" color: #a00000; font-size: 18px; margin-bottom: 8px; display: block;">Title Name:</label>
         <input type="text" name="title" id="title">
         <br>
         <i class="icon fas fa-cloud-upload-alt"></i>
@@ -142,7 +158,9 @@
 
         <br>
         <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" style="border-radius: 10px;">Submit</button>
+
+
     </div>
 
 

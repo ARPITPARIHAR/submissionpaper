@@ -62,18 +62,14 @@ class FormatController extends Controller
         $request->session()->flash('centerSuccess', 'Uploaded Successfully!');
         return redirect()->back();
     }
-
-
     public function showData()
     {
-       
         $user = Auth::user();
     
-       
         $formatData = $user->formats()->paginate(5);
     
-        
-        $commentData = CommentTable::whereIn('format_id', $formatData->pluck('id'))->get();
+        // Use eager loading to retrieve comments along with formats
+        $commentData = CommentTable::with('format')->whereIn('format_id', $formatData->pluck('id'))->paginate(5);
     
         return view('user.showuploaddata')->with(['formatData' => $formatData, 'commentData' => $commentData]);
     }

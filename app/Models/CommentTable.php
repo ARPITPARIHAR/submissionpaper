@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class CommentTable extends Model
 {
-    protected $fillable = ['comment', 'processed', 'pdf', 'url', 'format_id'];
+    protected $fillable = ['comment', 'processed', 'pdf', 'url', 'format_id', 'submission'];
+
 
     protected $casts = [
         'submitted' => 'boolean',
@@ -17,6 +18,8 @@ class CommentTable extends Model
     {
         return $this->belongsTo(Format::class, 'format_id', 'id');
     }
+
+   
 }
 
     
