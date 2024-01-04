@@ -1,13 +1,11 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class CommentTable extends Model
 {
-    protected $fillable = ['comment', 'processed', 'pdf', 'url', 'format_id', 'submission'];
+    protected $fillable = ['comment', 'processed', 'pdf', 'url', 'format_id', 'submitted'];
 
 
     protected $casts = [

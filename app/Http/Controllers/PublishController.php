@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\format;
+
 use Illuminate\Support\Facades\Storage;
 
 class PublishController extends Controller
@@ -22,7 +23,7 @@ class PublishController extends Controller
     
     public function download($file)
     {
-        // Find the file in the database based on the file name
+        
         $fileData = format::where('file_content', $file)->first();
 
         if ($fileData) {

@@ -8,7 +8,7 @@ class AdminMiddleware
 {
     public function handle($request, Closure $next)
     {
-        // Your logic for admin middleware
+        
         if (auth()->check() && auth()->user()->user_type == 'admin') {
             return $next($request);
         }

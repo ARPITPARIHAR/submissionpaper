@@ -15,7 +15,7 @@ return [
 
         'admin' => [
             'driver' => 'session',
-            'provider' => 'users', // Use 'users' provider for admin guard as well
+            'provider' => 'users', 
         ],
     ],
 

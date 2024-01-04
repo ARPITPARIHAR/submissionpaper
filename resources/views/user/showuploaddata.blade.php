@@ -11,15 +11,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 <style>
     table {
-        margin: 70px 80px 20px 30px; /* top right bottom left */
+        margin: 70px 80px 20px 30px; 
     }
 
-    /* Optional: Style the table for better readability */
     table.table {
         width: 80%;
         border-collapse: collapse;
         margin: 20px auto;
-        margin-top: 80px; /* top/bottom margin 20px, left/right margins auto */
+        margin-top: 80px; 
     }
 
     table.table th, table.table td {
@@ -30,10 +29,9 @@
     table.table th {
     background-color: #06A3DA;
     color: white;
-    text-align: center; /* Add this line to center-align text */
+    text-align: center; 
 }
 
-    
     .pagination {
     display: flex;
     justify-content: center;
@@ -51,7 +49,7 @@
     padding: 8px 12px;
 }
 .pagination .page-link {
-        font-size: 16px; /* Adjust the font size as needed */
+        font-size: 16px; 
     }
     @media screen and (max-width: 768px) {
         table.table {
@@ -70,7 +68,7 @@
         }
 
         .pagination .page-link {
-            font-size: 14px; /* Adjust the font size as needed */
+            font-size: 14px; 
         }
 
         body {
@@ -79,13 +77,9 @@
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0; /* Set your desired background color */
+    background-color: #f0f0f0; 
 }
-
-
-
-        
-    }
+ }
 </style>
 
 <!--<h1>Data Table</h1>-->
@@ -106,9 +100,7 @@
                 <th>Formated File</th>
                 <th>Publish Url</th>
                 <th>Submission At</th>
-                
-              
-            </tr>
+                </tr>
         </thead>
         <tbody>
             @foreach($formatData as $key => $item)
@@ -116,7 +108,7 @@
                 $currentPage = $formatData->currentPage();
                 $serialNumber = ($currentPage - 1) * $formatData->perPage() + $key + 1;
                 $status = $item->status;
-                $commentKey = $serialNumber - 1; // Adjust the comment key based on the serial number
+                $commentKey = $serialNumber - 1; 
                 $processed = isset($commentData[$commentKey]) ? $commentData[$commentKey]->processed : '';
             @endphp
         
@@ -128,8 +120,6 @@
             @else
                 white
             @endif;">
-        
-                
                 <td>{{ $serialNumber }}</td>
                 <td>{{ $item->journal_name ?? '' }}</td>
                 <td>{{ $item->title ?? '' }}</td>
@@ -138,7 +128,7 @@
         @php
             $fileExtension = pathinfo($item->file_content, PATHINFO_EXTENSION);
             $iconClass = '';
-            $iconColor = '#007BFF'; // Blue color
+            $iconColor = '#007BFF'; 
             
             switch ($fileExtension) {
                 case 'doc':
@@ -150,7 +140,7 @@
                     break;
                
                 default:
-                    $iconClass = 'fa-file'; // Default icon class
+                    $iconClass = 'fa-file'; 
                     break;
             }
         @endphp
@@ -161,13 +151,8 @@
         No file available
     @endif
 </td>
-
-
-
-                <td>
-                    {{ $status === 'downloaded' ? 'Downloaded' : 'Not Downloaded' }}
-                </td>
-                <td>
+                  <td> {{ $status === 'downloaded' ? 'Downloaded' : 'Not Downloaded' }} </td>
+                  <td>
                     @if (!is_null($commentData) && count($commentData) > $commentKey)
                         {{ $commentData[$commentKey]->comment ?? '' }}
                     @endif
@@ -185,8 +170,6 @@
                         Pending
                     @endif
                 </td>
-                
-
                 <td>
                     @if (!is_null($commentData) && count($commentData) > $commentKey)
                         @php
@@ -203,29 +186,14 @@
                         @endif
                     @endif
                 </td>
-                
-    
-
-
-
-                <td>
+                 <td>
                     @if (!is_null($commentData) && count($commentData) > $commentKey)
                         <a href="{{ $commentData[$commentKey]->url ?? '' }}" target="_blank">{{ $commentData[$commentKey]->url ?? '' }}</a>
                     @endif
                 </td>
-
-
                 <td>{{ $item->created_at->format('d-m-y H:i:s') }}</td>
             </tr>
-
-            
-        @endforeach
-        
-        
-        
-        
-        
-        
+          @endforeach
         </tbody>
     </table>
     </div>
@@ -234,8 +202,6 @@
     <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
         <a href="/formating" class="btn btn-warning" role="button">Back</a>
     </div>
-    
-
     {{-- <div class="pagination">
         {{ $formatData->appends(Request::except('page'))->links() }}
     </div> --}}
@@ -247,18 +213,9 @@
     
 @else
 <div class="no-data" style="display: flex; align-items: center; justify-content: center; height: 50vh;">No data available.</div>
-
-
-
-
 @endif
-
 @include('user.includes.footer')
-
 @section('style')
-
 @endsection
-
 @section('script')
-
 @endsection

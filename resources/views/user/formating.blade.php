@@ -14,7 +14,7 @@
     <style>
        
        .drop-box {
-    border: 2px dashed #353914;
+    border: 2px dashed white;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
@@ -28,7 +28,7 @@
     height: 500px; 
     margin-left:350px; 
     margin-right:350px; 
-    background-color: #ecf3fc;
+    background-image: url('img/dragbox.jpg');
 }
 
 
@@ -70,7 +70,7 @@
         display: inline-block;
         padding: 10px 15px;
         cursor: pointer;
-        background-color: #4CAF50;
+        background-color: #192151;
         color: white;
         border: none;
         border-radius: 4px;
@@ -143,15 +143,15 @@
     @csrf
 
     <div class="drop-box" id="dropArea" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <label for="journalName" style=" color: #120a0a; font-size: 18px; margin-bottom: 8px; display: block;">Journal Name</label>
+        <label for="journalName" style=" color:white; font-size: 18px; margin-bottom: 8px; display: block;">Journal Name</label>
 
         <input type="text" name="journalName" id="journalName">
 
-        <label for="title" style=" color: #120a0a; font-size: 18px; margin-bottom: 8px; display: block;">Title Name</label>
+        <label for="title" style=" color:white; font-size: 18px; margin-bottom: 8px; display: block;">Title Name</label>
         <input type="text" name="title" id="title">
         <br>
         <i class="icon fas fa-cloud-upload-alt"></i>
-        <p>Drag & Drop your file here<br>or click to browse</p>
+        <p style="color: white;">Drag & Drop your file here<br>or click to browse</p>
 
         <label for="fileInput" class="custom-file-upload">Choose File</label>
         
@@ -162,7 +162,7 @@
 
         <br>
         <br>
-        <button type="submit" class="btn btn-primary" style="border-radius: 10px;">Submit</button>
+        <button type="submit" class="btn btn-primary" style="border-radius: 5px;">Submit</button>
 
 
     </div>

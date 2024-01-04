@@ -81,11 +81,11 @@
 @include('user.includes.footer')
 
 @section('style')
-    <!-- Add your styles here if needed -->
+    
 @endsection
 
 @section('script')
-    <!-- Add your scripts here if needed -->
+  
 @endsection
 
 
@@ -104,11 +104,11 @@
         font-weight: 600;
         letter-spacing: .9px;
         transition: all .5s;
-        display: inline-block; /* Add this line to ensure the inline-block display */
+        display: inline-block; 
         text-align: center; /* Add this line to center the text within the button */
         text-decoration: none; /* Add this line to remove underlines */
         padding: 8px 16px; /* Adjust padding as needed */
-        border: none; /* Add this line to remove default button border */
+        border: none; 
     }
 </style>
 

@@ -11,7 +11,7 @@ class AdminActionsController extends Controller
     public function showUserTable()
     {
         $users = User::all();
-        $roles = ['admin', 'user', 'client']; // Define your roles here
+        $roles = ['admin', 'user', 'client']; 
 
         return view('Admin.usertable', compact('users', 'roles'));
     }
@@ -34,7 +34,7 @@ public function processChangePassword(Request $request, $userId)
     $user->password = Hash::make($request->password);
     $user->save();
 
-    // Check if the password change was successful
+    
     if ($user->wasChanged()) {
         return redirect()->route('adminusertable')->with('success', 'Password changed successfully');
     } else {
