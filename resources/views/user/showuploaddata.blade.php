@@ -80,6 +80,36 @@
     background-color: #f0f0f0; 
 }
  }
+
+
+ @media screen and (max-width: 768px) {
+        table {
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .pagination {
+            margin-top: 10px;
+        }
+
+        .pagination > li > a, .pagination > li > span {
+            font-size: 12px;
+            padding: 6px 8px;
+        }
+
+        .pagination .page-link {
+            font-size: 14px; 
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; 
+        }
+    }
 </style>
 
 <!--<h1>Data Table</h1>-->

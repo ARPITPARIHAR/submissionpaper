@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header" style="text-align: center;background-color:#1ed1a287;">{{ __('Registerd') }}</div>
+                    <div class="card-header" style="text-align: center;background-color:#1ed1a287;">{{ __('Register') }}</div>
 
                     <div class="card-body">
                         @if(session('success'))

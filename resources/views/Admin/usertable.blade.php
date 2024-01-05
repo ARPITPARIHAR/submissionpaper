@@ -78,6 +78,21 @@
         padding: 10px 15px;
         border-radius: 10px;
     }
+    @media screen and (max-width: 768px) {
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .log {
+            text-align: center;
+        }
+
+        .log button {
+            margin-top: 10px;
+        }
+    }
+
+
 </style>
 
 @include('user.includes.footer')

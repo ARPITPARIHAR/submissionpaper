@@ -7,8 +7,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FormatController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PublishController;
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminActionsController;
+use LDAP\Result;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,11 @@ Route::get('/', [HomeController::class, 'home']);
 // Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
 // Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
 // Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+Route::get('login/facebook', [LoginController::class, 'redirectToFacebook']);
+Route::get('login/facebook/callback', [LoginController::class, 'handleFacebookCallback']);
+
 
 
 //format.................
