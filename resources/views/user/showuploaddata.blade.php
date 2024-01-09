@@ -27,9 +27,11 @@
         text-align: left;
     }
     table.table th {
-    background-color: #27287f;
+    background-color: #9f0f50;
     color: white;
     text-align: center; 
+    font-family: nunito;
+    font-size:18px;
 }
 
     .pagination {

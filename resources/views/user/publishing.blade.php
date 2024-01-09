@@ -32,7 +32,8 @@
     table.table th {
         background-color: #046142;
         color: white;
-        text-align: center;    }
+        text-align: center;
+        font-family: Cursive;    }
         
 
     form {
