@@ -33,13 +33,13 @@ Route::get('/', [HomeController::class, 'home']);
 // Route for the login page
 // Route::get('/login', [LoginController::class, 'login'])->name('login');
 
-
-// Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
-// Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
+// google login....
+ Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
+ Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
 // Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-
+// faccebook login...
 Route::get('login/facebook', [LoginController::class, 'redirectToFacebook'])->name('facebook.login');
 Route::get('login/facebook/callback', [LoginController::class, 'handleFacebookCallback']);
 
