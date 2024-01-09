@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="text-align: center; background-color:#1ed1a287;">{{ __('Login') }}</div>
+                <div class="card-header" style="text-align: center;color:white; background: linear-gradient(to right, #6ebce2, #3a7fd5);">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -60,9 +60,10 @@
                                     {{ __('Login') }}
                                 </button>
 <br><br>
-                                <a href="{{ url('login/facebook') }}" class="btn btn-primary">
-                                    <i class="fab fa-facebook"></i> Login with Facebook
-                                </a>
+<a href="{{ url('login/facebook') }}" class="btn btn-primary">
+    <i class="fab fa-facebook"></i> Login with Facebook
+</a>
+
                             </div>
                         </div>
 

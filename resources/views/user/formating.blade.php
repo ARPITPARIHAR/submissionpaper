@@ -157,8 +157,8 @@
         
         <input type="file" name="file" id="fileInput" onchange="updateFileName(this)" accept=".doc, .docx, .pdf">
 
-        <div id="selectedFileName"></div>
-        <div id="fileErrorMessage" style="color: red;"></div>
+        <div id="selectedFileName" style="color: white"></div>
+        <div id="fileErrorMessage" style="color:white;"></div>
 
         <br>
         <br>
@@ -231,7 +231,7 @@
       
     
 
-<button id="showDataBtn" class="btn btn-dark" style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto; border-radius: 10px 10px 0 10px;">Your Uploaded Data</button>
+<button id="showDataBtn" class="btn btn-dark" style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto; border-radius: 15px 0px 1px 10px;">Your Uploaded Data</button>
 
 
 

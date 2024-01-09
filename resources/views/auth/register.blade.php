@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header" style="text-align: center;background-color:#1ed1a287;">{{ __('Register') }}</div>
+                    <div class="card-header" style="text-align: center; color:white;background-color:#078ea8;">{{ __('Register') }}</div>
 
                     <div class="card-body">
                         @if(session('success'))
@@ -106,6 +106,9 @@
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Register') }}
                                     </button>
+                                    <a href="{{ url('/login') }}" class="btn btn-secondary ml-2">
+                                        Back to Login
+                                    </a>
                                 </div>
                             </div>
                         </form>

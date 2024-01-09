@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <link rel="stylesheet" href="path/to/fontawesome-free-5.15.1/css/all.min.css">
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
@@ -27,7 +27,7 @@
         text-align: left;
     }
     table.table th {
-    background-color: #06A3DA;
+    background-color: #27287f;
     color: white;
     text-align: center; 
 }
@@ -130,6 +130,7 @@
                 <th>Formated File</th>
                 <th>Publish Url</th>
                 <th>Submission At</th>
+                <th>Action</th>
                 </tr>
         </thead>
         <tbody>
@@ -150,7 +151,7 @@
             @else
                 white
             @endif;">
-                <td>{{ $serialNumber }}</td>
+                <td style="text-align: center;">{{ $serialNumber }}</td>
                 <td>{{ $item->journal_name ?? '' }}</td>
                 <td>{{ $item->title ?? '' }}</td>
 <td>
@@ -222,6 +223,17 @@
                     @endif
                 </td>
                 <td>{{ $item->created_at->format('d-m-y H:i:s') }}</td>
+
+                <td class="text-center">
+                    <form method="POST" action="{{ route('users.delete', $item->id) }}">
+                        @csrf
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button type="submit" class="btn btn-danger a-btn-slide-text btn-flat show-alert-delete-box btn-sm btn-delete" data-toggle="tooltip" title='Delete' onclick="showDeleteAlert()">
+                            <i class="fa fa-trash" style="margin-right: 5px;"></i>
+                            Delete
+                          </button>
+                    </form>
+                </td>
             </tr>
           @endforeach
         </tbody>
@@ -249,3 +261,44 @@
 @endsection
 @section('script')
 @endsection
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script type="text/javascript">
+    $('.show-alert-delete-box').click(function(event){
+        var form =  $(this).closest("form");
+        var name = $(this).data("name");
+        event.preventDefault();
+        
+        swal({ 
+            title: "Are you sure you want to delete this record?",
+            text: "If you delete this, it will be gone forever.",
+            icon: "warning",
+            type: "warning",
+            buttons: {
+                cancel: {
+                    text: "Cancel",
+                    value: null,
+                    visible: true,
+                    className: "",
+                    closeModal: true,
+                },
+                confirm: {
+                    text: "Yes, delete it!",
+                    value: true,
+                    visible: true,
+                    className: "btn-danger", // Apply custom class for styling
+                    closeModal: false,
+                }
+            },
+            closeOnClickOutside: false, // Prevent closing on outside click
+            closeOnEsc: false, // Prevent closing on ESC key
+            dangerMode: true, // Display as a dangerous action
+        }).then((willDelete) => {
+            if (willDelete) {
+                form.submit();
+            }
+        });
+    });
+</script>

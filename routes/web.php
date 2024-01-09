@@ -39,31 +39,47 @@ Route::get('/', [HomeController::class, 'home']);
 // Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-Route::get('login/facebook', [LoginController::class, 'redirectToFacebook']);
-Route::get('login/facebook/callback', [LoginController::class, 'handleFacebookCallback']);
 
+Route::get('login/facebook', [LoginController::class, 'redirectToFacebook'])->name('facebook.login');
+Route::get('login/facebook/callback', [LoginController::class, 'handleFacebookCallback']);
 
 
 //format.................
 
- Route::middleware(['auth', 'client'])->group(function () {
+//  Route::middleware(['auth', 'client'])->group(function () {
+//     Route::get('/formating', [FormatController::class, 'format']);
+//  });
+//  Route::middleware(['auth'])->group(function () {
     Route::get('/formating', [FormatController::class, 'format']);
- });
+// });
+
 
 Route::get('/multi', [FormatController::class, 'multi']);
 Route::post('/upload', [FormatController::class, 'store'])->name('upload.store');
 Route::get('/show-data', [FormatController::class, 'showData']);
 Route::get('/show-data', [FormatController::class, 'showData'])->name('show-data');
 
+Route::delete('/users/{id}', [FormatController::class, 'destroy'])->name('users.delete');
+
+
+
+
+
+
 
 
 //publish....................
 
-//   Route::middleware(['auth', 'user'])->group(function () {
+  //  Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/publishing', [PublishController::class, 'publish']);
-//  });
+  // });
 
 Route::get('/download/{file}', [PublishController::class, 'download']);
+// Route::get('/admin/remove-user/{userId}', [PublishController::class, 'removeUser'])->name('admin.removeUser');
+
+
+
+
 Route::post('get-comment',[CommentController::class, 'getComment'])->name('get-comment');
 Route::post('/submit-form', [CommentController::class, 'submitForm'])->name('submit.form');
 Route::post('update-status',[CommentController::class, 'updateStatus'])->name('update-status');
@@ -73,11 +89,11 @@ Route::post('update-status',[CommentController::class, 'updateStatus'])->name('u
   
 //admin.................
 
-//    Route::middleware(['auth', 'admin'])->group(function () {
+  Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/adminusertable', [AdminActionsController::class, 'showUserTable'])->name('adminusertable');
     //  Route::get('/publishing', [PublishController::class, 'publish']);
         //  Route::get('/formating', [FormatController::class, 'format']);
-//    });
+    });
 
 
     Route::get('/adminchangepassword{userId}', [AdminActionsController::class, 'showChangePasswordForm'])->name('admin.changePassword');

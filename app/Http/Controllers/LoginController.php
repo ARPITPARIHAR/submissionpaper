@@ -2,42 +2,62 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Laravel\Socialite\Facades\Socialite;
+use App\Models\User; 
+use Exception;
+
+use Illuminate\Support\Facades\Auth;
+
 
 class LoginController extends Controller
 {
-   
-
+    
     public function redirectToFacebook()
     {
         return Socialite::driver('facebook')->redirect();
     }
-    
+
+   
+
+
+
+
+
     public function handleFacebookCallback()
     {
-        $user = Socialite::driver('facebook')->user();
-    
-      
-    
-        return redirect('/home');
+        try {
+        
+            $user = Socialite::driver('facebook')->user();
+         
+            $finduser = User::where('facebook_id', $user->id)->first();
+         
+            if($finduser){
+         
+                Auth::login($finduser);
+       
+                return redirect()->intended('dashboard');
+         
+            }else{
+                $newUser = User::updateOrCreate(['email' => $user->email],[
+                        'name' => $user->name,
+                        'facebook_id'=> $user->id,
+                         'password' => encrypt('123456dummy')
+                    ]);
+        
+                Auth::login($newUser);
+        
+                return redirect()->intended('dashboard');
+            }
+       
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
     }
-    
+}
 
-//     public function redirectToGoogle()
-//     {
-//         return Socialite::driver('google')->redirect();
-//     }
 
-//     public function handleGoogleCallback()
-//     {
-//         $user = Socialite::driver('google')->user();
 
-//         // Add your logic for creating or logging in the user here
-//         // For example, you might check if the user exists in your database
-//         // and create them if not
 
-//         // Assuming you have a 'dashboard' route
-//         return redirect()->route('dashboard');
-//     }
-// }
+

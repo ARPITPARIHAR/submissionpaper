@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\format;
+use App\Models\Format;
 use App\Models\CommentTable;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
@@ -76,4 +76,14 @@ class FormatController extends Controller
     
         return view('user.showuploaddata')->with(['formatData' => $formatData, 'commentData' => $commentData]);
     }
+   
+   
+
+    public function destroy(Request $request, $id)
+    {
+        CommentTable::where('format_id', $id)->delete();  
+        Format::find($id)->delete();
+    return back()->with('success', 'Student Delete Successfully');
+    }
+    
 }

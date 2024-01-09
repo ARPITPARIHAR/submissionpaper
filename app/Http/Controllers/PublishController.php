@@ -48,4 +48,15 @@ class PublishController extends Controller
         // If the file doesn't exist or there's an issue, redirect back with an error message
         return redirect()->back()->with('error', 'File not found or unable to download.');
     }
+
+  
+ 
+
+
+
 }
+
+
+
+
+

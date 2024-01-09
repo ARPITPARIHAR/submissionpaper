@@ -30,9 +30,10 @@
     }
 
     table.table th {
-        background-color: #52a0a7;
+        background-color: #046142;
         color: white;
         text-align: center;    }
+        
 
     form {
         display: inline;
@@ -66,14 +67,14 @@
 
    
 @if($data !== null && count($data) > 0)
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
             <th>S.N.</th>
             <th>Journal Name</th>
             <th>Title Name</th>
             <th>File Name</th>
-            <th>Published</th>
+            <th>Submission Date</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -88,7 +89,7 @@
             $rowStyle = ($processed === 'published') ? 'background-color: lightgreen;' : '';
         @endphp
         <tr style="{{ $rowStyle }}">
-                <td>{{ $loop->iteration }}</td>
+                <td style="text-align: center";>{{ $loop->iteration }}</td>
                 <td>{{ $item->journal_name ?? '' }}</td>
                 <td>{{ $item->title ?? '' }}</td>
                 <td>
@@ -117,13 +118,19 @@
                         No file available
                     @endif
                 </td>
-                <td></td>
-                <td>
-                    <a href="{{ asset('/download/' . $item->file_content) }}">Download</a>
-                </td>
+                <td class="text-center">{{ $item->created_at->format('d-m-y') }}</td>
+
+                <td class="text-center">
+                    <a href="{{ asset('/download/' . $item->file_content) }}" style="background-color: #7d0408; color: #fff; border: none; padding: 4px 6px; border-radius: 4px; text-decoration: none; display: inline-flex; align-items: center;" title="Download">
+                      <i class="fa fa-download" style="font-size:18px; margin-right: 5px;"></i>
+                      Download
+                    </a>
+                  </td>
                 <td>
                     <a href="#" onclick="openCommentModal({{$item->id}})" data-id="{{ $item->id }}" class="btn btn-primary btn-publish">Comment</a>
                 </td>
+              
+
             </tr>
         @endforeach
     </tbody>
@@ -284,5 +291,48 @@
 
 <!-- Include SweetAlert library -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function deleteRow(id) {
+    if (confirm('Are you sure you want to delete this record?')) {
+        $.ajax({
+            url: '/delete/format/' + id,
+            type: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                if (response.success) {
+                    // Update the UI or perform any additional actions
+                    alert(response.message);
+                    location.reload(); // Reload the page or update the UI as needed
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function (error) {
+                console.error(error);
+                alert('An error occurred while deleting the record.');
+            }
+        });
+    }
+}
 
-<!-- Script to update tick colors -->
+</script>
+<style>
+    /* Add your custom styles here */
+    .btn-download {
+      background-color: #007bff; /* Bootstrap's primary color */
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none; /* Remove default underline for links */
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .download-icon {
+      margin-right: 5px;
+    }
+  </style>
