@@ -4,6 +4,7 @@
 
 @include('user.includes.navbar')
 
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <div class="container" style="margin-top:100px;">
     <div class="row justify-content-center">
