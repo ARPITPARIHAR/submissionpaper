@@ -71,8 +71,7 @@
                     <a href="multi" class="nav-item nav-link">Contact</a>
                     <a href="formating" class="nav-item nav-link">Submission</a>
                     <a href="publishing" class="nav-item nav-link">Publication</a>
-
-                    <a href="adminusertable" class="nav-item nav-link">Admin Pannel</a>
+                     <a href="adminusertable" class="nav-item nav-link">AdminPanel</a>
 
                    <!-- Navbar.blade.php -->
 <!-- Navbar.blade.php -->
