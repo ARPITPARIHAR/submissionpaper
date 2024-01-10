@@ -72,7 +72,7 @@
                     <a href="formating" class="nav-item nav-link">Submission</a>
                     <a href="publishing" class="nav-item nav-link">Publication</a>
 
-                    <a href="adminusertable" class="nav-item nav-link">User Table</a>
+                    <a href="adminusertable" class="nav-item nav-link">Admin Pannel</a>
 
                    <!-- Navbar.blade.php -->
 <!-- Navbar.blade.php -->
