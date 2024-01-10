@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="text-align: center;color:white; background: linear-gradient(to right, #6ebce2, #3a7fd5);">{{ __('Login') }}</div>
+                <div class="card-header" style="text-align: center;color:white;background-color: #23629F;">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -56,14 +56,15 @@
                         <br>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn loginYellow mb-2 me-3">
+                                <button type="submit" class="ws-nowrap s-btn s-btn__filled" 
+                                >
                                     {{ __('Login') }}
                                 </button>
 <br><br>
 <a href="{{ url('login/facebook') }}" class="btn btn-primary">
     <i class="fab fa-facebook"></i> Login with Facebook
 </a>
-<a href="{{ url('login/google') }}" class="btn btn-danger">
+<a href="{{ url('login/google') }}" class="btn btn-dark">
     <i class="fab fa-google"></i> Login with Google
 </a>
 
@@ -94,6 +95,31 @@
 @endsection
 
 <style>
+    /* Add this style in your CSS file or in a style tag in your HTML file */
+
+/* Remove the default button border */
+button.ws-nowrap {
+    border: none;
+}
+
+/* Style the button */
+button.ws-nowrap.s-btn__filled {
+    background-color: #23629F;
+    color: white;
+    font: 15px;
+    padding: 8.4px; 
+    width:100px;
+    border-radius: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    cursor: pointer; /* Add a pointer cursor for better usability */
+    transition: background-color 0.3s ease; /* Smooth transition on background color change */
+}
+
+/* Hover effect */
+button.ws-nowrap.s-btn__filled:hover {
+    background-color: #184875; /* Change the background color on hover */
+}
+
     button.loginYellow {
         min-width: 110px!important;
         height: 36px!important;
