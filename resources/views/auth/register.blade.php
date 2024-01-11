@@ -55,16 +55,16 @@
                                 <div class="input-group">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                     <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-eye" id="togglePassword"></i>
+                                        <span class="input-group-text" style="background-color: white;">
+                                            <i class="fas fa-eye" id="togglePassword" style="cursor: pointer; color: #007bff;"></i>
                                         </span>
                                     </div>
                                 </div>
                         
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -76,8 +76,8 @@
                                 <div class="input-group">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                     <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-eye" id="toggleConfirmPassword"></i>
+                                        <span class="input-group-text" style="background-color: white;">
+                                            <i class="fas fa-eye" id="toggleConfirmPassword" style="cursor: pointer; color: #007bff;"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -103,10 +103,12 @@
                         <br>
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" style="border-radius: 10px 0px 10px 10px;">
                                         {{ __('Register') }}
                                     </button>
-                                    <a href="{{ url('/login') }}" class="btn btn-secondary ml-2">
+                                    
+                                   
+                                    <a href="{{ url('/login') }}" class="btn btn-secondary ml-2" style="border-radius: 0px 10px 10px 10px;">
             Back to Login
         </a>
                                 </div>
