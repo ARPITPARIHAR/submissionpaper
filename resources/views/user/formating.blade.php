@@ -86,7 +86,7 @@
     border: none;
     cursor: pointer;
     float: right;
-    font-size: 18px;
+    font-size: 17px;
     margin-top: -650px !important; 
     padding: 10px 15px;
     border-radius: 10px;

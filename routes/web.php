@@ -83,11 +83,11 @@ Route::post('update-status',[CommentController::class, 'updateStatus'])->name('u
   
 //admin.................
 
-   Route::middleware(['auth', 'admin'])->group(function () {
+  //  Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/adminusertable', [AdminActionsController::class, 'showUserTable'])->name('adminusertable');
       Route::get('/publishing', [PublishController::class, 'publish']);
        Route::get('/formating', [FormatController::class, 'format']);
-       });
+      //  });
 
 
     Route::get('/adminchangepassword{userId}', [AdminActionsController::class, 'showChangePasswordForm'])->name('admin.changePassword');
