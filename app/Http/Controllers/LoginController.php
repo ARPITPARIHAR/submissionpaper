@@ -21,9 +21,6 @@ class LoginController extends Controller
    
 
 
-
-
-
     public function handleFacebookCallback()
     {
         try {

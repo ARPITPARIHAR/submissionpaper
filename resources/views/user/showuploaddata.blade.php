@@ -290,13 +290,13 @@
                     text: "Yes, delete it!",
                     value: true,
                     visible: true,
-                    className: "btn-danger", // Apply custom class for styling
+                    className: "btn-danger", 
                     closeModal: false,
                 }
             },
-            closeOnClickOutside: false, // Prevent closing on outside click
-            closeOnEsc: false, // Prevent closing on ESC key
-            dangerMode: true, // Display as a dangerous action
+            closeOnClickOutside: false, 
+            closeOnEsc: false, 
+            dangerMode: true, 
         }).then((willDelete) => {
             if (willDelete) {
                 form.submit();

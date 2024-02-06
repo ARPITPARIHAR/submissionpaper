@@ -66,14 +66,13 @@
 
             event.preventDefault(); // Prevent form submission
         } else {
-            // If form is valid, you can perform additional actions or show a confirmation
+           
             Swal.fire({
                 icon: 'success',
                 title: 'Success!',
                 text: 'Form submitted successfully!',
             });
 
-            // You can also redirect or perform other actions after a successful submission
         }
     });
 </script>

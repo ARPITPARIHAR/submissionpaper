@@ -8,7 +8,7 @@
     <title>Drag and Drop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     
     <style>
@@ -87,7 +87,7 @@
     cursor: pointer;
     float: right;
     font-size: 18px;
-    margin-top: -500px !important; 
+    margin-top: -650px !important; 
     padding: 10px 15px;
     border-radius: 10px;
 }
@@ -138,7 +138,19 @@
 </head>
 
 
-     
+
+<div style="overflow-x: auto;">
+
+    @if(Auth::check())
+        <p style="margin-top: 80px; text-align:center; font-size:20px;">Welcome, {{ Auth::user()->name }}</p>
+    @endif
+
+</div>
+
+
+
+
+
 <form action="{{ route('upload.store') }}" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
     @csrf
 
@@ -168,14 +180,13 @@
     </div>
 
 
-  
     
     <script>
         function updateFileName(input) {
-            // Get the selected file name
+            
             var fileName = input.files[0].name;
 
-            // Display the file name in a div
+          
             document.getElementById('selectedFileName').innerText = 'Selected File: ' + fileName;
         }
 
@@ -190,14 +201,11 @@
                 return false; // Prevent form submission
             }
 
-            // Check if a file is selected
             if (!fileInput.files.length) {
                 alert('Please choose a valid file.');
                 return false;
             }
-
-            // Check file extension
-            var fileName = fileInput.value.toLowerCase();
+             var fileName = fileInput.value.toLowerCase();
             var fileExtension = fileName.split(".").pop();
 
             if (!allowedExtensions.includes(fileExtension)) {
@@ -207,7 +215,7 @@
                 document.getElementById('fileErrorMessage').innerText = "";
             }
 
-            return true; // Allow form submission
+            return true; 
         }
     </script>
 </form>
@@ -215,9 +223,12 @@
 <form method="POST" action="{{ route('logout') }}">
     @csrf
     <div class="log">
-    <button type="submit">Logout</button>
+        <button type="submit" class="btn btn-warning">
+            <i class="fa fa-sign-out" aria-hidden="true" style="color: white;"></i> Logout
+        </button>
     </div>
 </form>
+
 
 </div>
 </div>
@@ -228,20 +239,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/datepicker@0.6.5/dist/datepicker.min.js"></script>
 
-      
-    
-
 <button id="showDataBtn" class="btn btn-dark" style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto; border-radius: 15px 0px 1px 10px;">Your Uploaded Data</button>
-
-
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Add an event listener to the button
-        document.getElementById("showDataBtn").addEventListener("click", function () {
-            // Redirect to the page where you show the uploaded data
-            window.location.href = "{{ route('show-data') }}";
+       document.getElementById("showDataBtn").addEventListener("click", function () {
+             window.location.href = "{{ route('show-data') }}";
         });
     });
 </script>
@@ -264,7 +267,7 @@
         var output = [];
         for (var i = 0; i < files.length; i++) {
             output.push('<li>', files[i].name, '</li>');
-            // You can add more file handling logic here
+            
         }
         document.getElementById('fileInput').files = files;
         document.getElementById('dropArea').innerHTML = '<ul>' + output.join('') + '</ul>';
@@ -293,16 +296,9 @@
             </div>
         `;
 
-        // Remove existing modal if present
         $("#customModal").remove();
-
-        // Append the modal HTML to the body
         $("body").append(modalHtml);
-
-        // Show the modal using Bootstrap method
         $("#customModal").modal('show');
-
-        // Bind the close event directly to the close button
         $("#customModal .close, #customModal [data-dismiss='modal']").click(function () {
             $("#customModal").modal('hide');
         });
@@ -313,9 +309,8 @@
 
         fileInput.addEventListener("change", function () {
             if (!isValidFile(fileInput)) {
-                // Show the modal when the file is not valid
                 showCustomModal("Invalid File", "Please select a valid file (doc, docx, or pdf).");
-                fileInput.value = "";  // Clear the file input if the file is not valid
+                fileInput.value = "";  
             }
         });
 
@@ -349,7 +344,7 @@
         fileInput.addEventListener("change", function () {
             if (!isValidFile(fileInput)) {
                 customModal.style.display = "block";
-                fileInput.value = "";  // Clear the file input if the file is not valid
+                fileInput.value = "";  
             }
         });
 
@@ -375,7 +370,7 @@
         fileInput.addEventListener("change", function () {
             if (!isValidFile(fileInput)) {
                 errorMessage.innerText = "Please select a valid file (doc, docx, or pdf).";
-                fileInput.value = "";  // Clear the file input if the file is not valid
+                fileInput.value = "";  
             } else {
                 errorMessage.innerText = "";
             }
@@ -401,10 +396,6 @@
     });
   </script>
 
-
-
-<!-- Add these links to your HTML head -->
-<!-- Bootstrap CSS and JS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
@@ -451,13 +442,9 @@
             backdrop: 'static',
             keyboard: false
         });
-
-        // Function to close the modal
-        function closeModal() {
+      function closeModal() {
             $('#successModal').modal('hide');
         }
-
-        // Attach the closeModal function to the close button
         $('.close-button').on('click', closeModal);
     });
 </script>
@@ -468,10 +455,9 @@
     position: relative;
     padding: 1rem;
     margin-bottom: 1rem;
-    /* border: 1px solid #bd1717; */
     border-radius: 5px;
 }
-/* Remove blur effect styles */
+
 .modal-backdrop {
 display: none !important;
 }

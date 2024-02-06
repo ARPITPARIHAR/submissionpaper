@@ -61,12 +61,15 @@
                                     {{ __('Login') }}
                                 </button>
 <br><br>
-<a href="{{ url('login/facebook') }}" class="btn btn-primary">
-    <i class="fab fa-facebook"></i> Login with Facebook
-</a>
-<a href="{{ url('login/google') }}" class="btn btn-dark">
-    <i class="fab fa-google"></i> Login with Google
-</a>
+<div style="display: flex; gap: 20px;">
+    <a href="{{ url('login/facebook') }}" class="btn btn-primary">
+        <i class="fab fa-facebook"></i> Login with Facebook
+    </a>
+    <a href="{{ url('login/google') }}" class="btn btn-dark">
+        <i class="fab fa-google"></i> Login with Google
+    </a>
+</div>
+
 
                             </div>
                         </div>

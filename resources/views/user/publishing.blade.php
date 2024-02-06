@@ -9,17 +9,19 @@
 <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
     table {
-        margin: 70px 80px 20px 30px; /* top right bottom left */
+        margin: 70px 80px 20px 30px; 
     }
 
     table.table {
         width: 80%;
         border-collapse: collapse;
         margin: 20px auto;
-        margin-top: 80px; /* top/bottom margin 20px, left/right margins auto */
+        margin-top: 80px;
     }
 
     table.table th,
@@ -41,13 +43,24 @@
     }
 
     .log button {
-        background-color: #dc3545;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        float: right;
-        margin-top: -200px !important; /* Adjust the margin-top value as needed */
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    float: right;
+    margin-top: 5px; 
+    padding: 8px 16px; 
+}
+
+@media (max-width: 767px) {
+   
+    .log button {
+        float: none;
+        margin-top: 10px; 
+        width: 100%; 
     }
+}
+
 
     .published-row {
         background-color: lightgreen;
@@ -57,9 +70,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
-    /* Add a new class for the green background */
+   
     .submission-accepted {
-        background-color: #1a991a !important; /* Adjust the background color as needed */
+        background-color: #1a991a !important;
     }
 </style>
 
@@ -80,12 +93,12 @@
         </tr>
     </thead>
     <tbody>
-        <!-- Add this script to your page -->
+       
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         @foreach ($data as $item)
         @php
-            $commentKey = $item->id; // Assuming $commentKey is derived from the item's ID
+            $commentKey = $item->id; 
             $processed = isset($commentData[$commentKey]) ? $commentData[$commentKey]->processed : '';
             $rowStyle = ($processed === 'published') ? 'background-color: lightgreen;' : '';
         @endphp
@@ -107,9 +120,8 @@
                                 case 'pdf':
                                     $iconClass = 'fa-file-pdf';
                                     break;
-                                // Add more cases for other file types if needed
-                                default:
-                                    $iconClass = 'fa-file'; // Default icon class
+                                 default:
+                                    $iconClass = 'fa-file'; 
                                     break;
                             }
                         @endphp
@@ -130,8 +142,6 @@
                 <td>
                     <a href="#" onclick="openCommentModal({{$item->id}})" data-id="{{ $item->id }}" class="btn btn-primary btn-publish">Comment</a>
                 </td>
-              
-
             </tr>
         @endforeach
     </tbody>
@@ -141,13 +151,13 @@
 <div class="no-data" style="display: flex; align-items: center; justify-content: center; height: 50vh;">No data available.</div>
 @endif
 </div>
-
 <form method="POST" action="{{ route('logout') }}">
     @csrf
-    <div class="log">
+    <div class="log"> <i class="fa fa-sign-out" aria-hidden="true" style="color: white;"></i>
         <button type="submit">Logout</button>
     </div>
 </form>
+
 
 <div class="modal fade" id="comment-modal" data-backdrop="static" data-keyboard="false" aria-hidden="true">
     <div class="modal-dialog">
@@ -161,7 +171,7 @@
                 </div>
             </div>
             <div class="modal-body" id="comment-modal-body">
-                <!-- Your modal body content goes here -->
+               
             </div>
         </div>
     </div>
@@ -179,17 +189,10 @@
             $('#comment-modal').modal('show');
             $('#comment-modal-body').html(data);
 
-            // Assuming there is a variable like $commentData available with the comment data
             var commentData = {!! json_encode($commentData ?? []) !!};
-
-            // Get the comment button in the table row
             var commentButton = $('[data-id="' + id + '"]').find('.btn-publish');
-
-            // Find the comment status in the commentData array
             var commentStatus = commentData[id] ? commentData[id].processed : '';
-
-            // Set color based on comment status
-            if (commentStatus === 'published') {
+             if (commentStatus === 'published') {
                 commentButton.removeClass('btn-primary').addClass('btn-success');
             } else {
                 commentButton.removeClass('btn-success').addClass('btn-primary');
@@ -212,8 +215,6 @@
         });
     }
 </script>
-
-
 <script>
     function closeModal() {
         $('#ajaxModelexa').modal('hide');
@@ -225,12 +226,9 @@
         position: relative;
         padding: 1rem;
         margin-bottom: 1rem;
-        /* border: 1px solid #bd1717; */
         border-radius: 5px;
     }
-
-    /* Remove blur effect styles */
-    .modal-backdrop {
+ .modal-backdrop {
         display: none !important;
     }
 
@@ -246,11 +244,8 @@
 
 <script>
     function closeModalAndCallout() {
-        // Close the modal
         var modal = document.getElementById('comment-modal');
         modal.style.display = 'none';
-
-        // Close the callout
         var callout = document.querySelector('.callout');
         callout.style.display = 'none';
     }
@@ -258,11 +253,7 @@
 
 <script>
     function closeCallout() {
-        // Close the modal
-        $('#comment-modal').modal('hide');
-
-        // Optionally, you can remove the modal backdrop
-        // $('.modal-backdrop').remove();
+       $('#comment-modal').modal('hide');     
     }
 </script>
 
@@ -273,24 +264,17 @@
             keyboard: false
         });
 
-        // Function to close the modal
+       
         function closeModal() {
             $('#comment-modal').modal('hide');
         }
 
-        // Attach the closeModal function to the close button
         $('.close-button').on('click', closeModal);
     });
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Script to update tick colors -->
-
-<!-- Include jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Include SweetAlert library -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 function deleteRow(id) {
@@ -303,9 +287,8 @@ function deleteRow(id) {
             },
             success: function (response) {
                 if (response.success) {
-                    // Update the UI or perform any additional actions
-                    alert(response.message);
-                    location.reload(); // Reload the page or update the UI as needed
+                   alert(response.message);
+                    location.reload(); 
                 } else {
                     alert(response.message);
                 }
@@ -317,18 +300,17 @@ function deleteRow(id) {
         });
     }
 }
-
 </script>
 <style>
-    /* Add your custom styles here */
+ 
     .btn-download {
-      background-color: #007bff; /* Bootstrap's primary color */
+      background-color: #007bff;
       color: #fff;
       border: none;
       padding: 8px 12px;
       border-radius: 4px;
       cursor: pointer;
-      text-decoration: none; /* Remove default underline for links */
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
     }

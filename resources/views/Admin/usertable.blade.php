@@ -2,7 +2,10 @@
 @section('meta_title', '')
 @include('user.includes.navbar')
 
-<div class="table-container" style="margin-top: 120px; background-color: #f0f8ff; padding: 20px; border-radius: 10px;">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<div class="table-container" style="margin-top: 120px; background-color:#f8eab2; padding: 20px; border-radius: 10px;">
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -48,8 +51,12 @@
 <form method="POST" action="{{ route('logout') }}">
     @csrf
     <div class="log" style="text-align: right; margin-top: 10px;">
-        <button type="submit" class="btn btn-warning">Logout</button>
+        <button type="submit" class="btn btn-warning">
+            <i class="fa fa-sign-out" aria-hidden="true" style="color: black;"></i> Logout
+        </button>
     </div>
+    
+    
 </form>
 
 <style>
@@ -67,6 +74,10 @@
 
     .btn {
         margin-right: 5px;
+    }
+
+    .table th{
+        color: #b90808;
     }
 
     .log button {

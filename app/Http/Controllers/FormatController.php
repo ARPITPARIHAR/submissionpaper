@@ -48,7 +48,6 @@ class FormatController extends Controller
             return redirect()->back();
         }
 
-        
          $user = Auth::user();
         $data = new format;
 
@@ -71,7 +70,7 @@ class FormatController extends Controller
     
         $formatData = $user->formats()->paginate(5);
     
-        // Use eager loading to retrieve comments along with formats
+     
         $commentData = CommentTable::with('format')->whereIn('format_id', $formatData->pluck('id'))->paginate(5);
     
         return view('user.showuploaddata')->with(['formatData' => $formatData, 'commentData' => $commentData]);
