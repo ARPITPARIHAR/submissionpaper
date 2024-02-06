@@ -60,7 +60,7 @@
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
-                <i class="fa-solid fa-bars"></i>
+              
             </button>
       
             <div class="collapse navbar-collapse" id="navbarCollapse">

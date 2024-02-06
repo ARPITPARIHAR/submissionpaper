@@ -37,7 +37,7 @@ Route::get('/', [HomeController::class, 'home']);
 Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('/callback', [LoginController::class, 'handleGoogleCallback']);
 
-// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 
@@ -47,12 +47,12 @@ Route::get('login/facebook/callback', [LoginController::class, 'handleFacebookCa
 
 //format.................
 
-//  Route::middleware(['auth', 'client'])->group(function () {
-//     Route::get('/formating', [FormatController::class, 'format']);
-//  });
-  Route::middleware(['auth'])->group(function () {
+  Route::middleware(['auth', 'client'])->group(function () {
     Route::get('/formating', [FormatController::class, 'format']);
-  });
+});
+  //  Route::middleware(['auth'])->group(function () {
+   Route::get('/formating', [FormatController::class, 'format']);
+  //  });
 
 
 Route::get('/multi', [FormatController::class, 'multi']);
@@ -66,9 +66,9 @@ Route::delete('/users/{id}', [FormatController::class, 'destroy'])->name('users.
 
 //publish....................
 
-    // Route::middleware(['auth', 'user'])->group(function () {
+    Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/publishing', [PublishController::class, 'publish']);
-  // });
+    });
 
 Route::get('/download/{file}', [PublishController::class, 'download']);
 // Route::get('/admin/remove-user/{userId}', [PublishController::class, 'removeUser'])->name('admin.removeUser');
@@ -83,11 +83,11 @@ Route::post('update-status',[CommentController::class, 'updateStatus'])->name('u
   
 //admin.................
 
-  // Route::middleware(['auth', 'admin'])->group(function () {
+  Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/adminusertable', [AdminActionsController::class, 'showUserTable'])->name('adminusertable');
-    //  Route::get('/publishing', [PublishController::class, 'publish']);
-        //  Route::get('/formating', [FormatController::class, 'format']);
-    // });
+      Route::get('/publishing', [PublishController::class, 'publish']);
+       Route::get('/formating', [FormatController::class, 'format']);
+      });
 
 
     Route::get('/adminchangepassword{userId}', [AdminActionsController::class, 'showChangePasswordForm'])->name('admin.changePassword');
