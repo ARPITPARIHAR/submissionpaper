@@ -38,10 +38,16 @@
     <div class="col-sm-4 offset-sm-4">
         <button type="submit" class="btn btn-primary btn-lg">Change Password</button>
     </div>
+    <div class="col-sm-4">
+        <a href="/adminusertable" class="btn btn-secondary btn-lg">Back</a>
+    </div>
 </div>
+
+
 
     </form>
 </div>
+
 
 @include('user.includes.footer')
 

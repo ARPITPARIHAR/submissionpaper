@@ -5,7 +5,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<div class="table-container" style="margin-top: 120px; background-color:#f8eab2; padding: 20px; border-radius: 10px;">
+<div class="table-container" style="margin-top: 120px; background-color:#013437; padding: 20px; border-radius: 25px; margin-left: auto; /* This will push the container to the right */
+margin-right: auto; 
+max-width: 1200px;">
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -69,7 +71,7 @@
     }
 
     .table-hover tbody tr:hover {
-        background-color: #d3eafd;
+        background-color: #5b1450;
     }
 
     .btn {
@@ -77,9 +79,14 @@
     }
 
     .table th{
-        color: #b90808;
+        color:white;
+        font-family: sans-serif;
+        
     }
 
+    .table td{
+        color:#2ed8b0;
+    }
     .log button {
         background-color: #ff9800;
         color: #fff;

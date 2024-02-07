@@ -27,8 +27,8 @@
             <div class="col-lg-8 text-center text-lg-start mb-8 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px; ">
                     <small class="me-3 mb-2 text-light"><i class="fa fa-map-marker-alt me-2"></i>Y-18-A, Sudarshana Nagar Bikaner (Rajasthan) 334003</small><br>
-                    <small class="me-3 mb-2 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small><br>
-                    <small class="mb-2 text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                    <small class="me-3 mb-2 text-light"><i class="fa fa-phone-alt me-2"></i><a href="tel:+0123456789" class="text-light">+012 345 6789</a></small><br>
+                    <small class="mb-2 text-light"><i class="fa fa-envelope-open me-2"></i>   <a href="mailto:info@example.com" style="color: white;">info@example.com</a></small>
                 </div>
             </div>
         
