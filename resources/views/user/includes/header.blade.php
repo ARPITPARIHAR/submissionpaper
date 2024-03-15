@@ -66,7 +66,7 @@
             <div class="col-lg-7">
                 <div class="section-title position-relative pb-3 mb-5">
                     <h5 class="fw-bold text-primary text-uppercase">About Us</h5>
-                    <h1 class="mb-0">The Best IT Solution With 10 Years of Experience</h1>
+                    <h1 class="mb-0">The Best Paper Formatting With 10 Years of Experience</h1>
                 </div>
                 <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
                 <div class="row g-0 mb-3">
@@ -238,7 +238,7 @@
 
 
 <!-- Pricing Plan Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+{{-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
             <h5 class="fw-bold text-primary text-uppercase">Pricing Plans</h5>
@@ -305,7 +305,7 @@
         </div>
     </div>
 </div>
-<!-- Pricing Plan End -->
+<!-- Pricing Plan End --> --}}
 
 
 <!-- Quote Start -->

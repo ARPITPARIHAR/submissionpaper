@@ -1,16 +1,17 @@
 <?php
 
+use LDAP\Result;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormatController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PublishController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminActionsController;
-use LDAP\Result;
-
+use App\Http\Controllers\Auth\PhoneVerificationController;
+use App\Http\Livewire\VerifyOtp;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -104,7 +105,12 @@ Route::post('update-status',[CommentController::class, 'updateStatus'])->name('u
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+
  
+    Route::get('/verify', [PhoneVerificationController::class, 'showVerificationForm'])->name('verification.form');
+    Route::post('//generate-otp', [PhoneVerificationController::class, 'generateOtp'])->name('send.otp');
+    Route::post('/verify-otp', [PhoneVerificationController::class, 'verifyOtp'])->name('verify.otp');
+    
  
   
  

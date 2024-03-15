@@ -58,7 +58,6 @@ public function processChangePassword(Request $request, $userId)
     }
     
 
-
     public function removeUser($userId)
     {
         User::destroy($userId);

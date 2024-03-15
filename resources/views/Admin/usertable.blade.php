@@ -71,7 +71,8 @@ max-width: 1200px;">
     }
 
     .table-hover tbody tr:hover {
-        background-color: #5b1450;
+        background-color: #ef0741bb;
+        color:black;
     }
 
     .btn {

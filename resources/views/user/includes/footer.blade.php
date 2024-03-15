@@ -78,7 +78,12 @@
         <div class="row justify-content-end">
             <div class="col-lg-8 col-md-6">
                 <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
-                    <p class="mb-0">&copy; <a class="text-white border-bottom" href="/">submission.worldjournalsalert.com</a>. All Rights Reserved. 
+                    <p class="mb-0">
+                        <span style="color: #ffcf6b;">&copy;</span>
+                        <a class="text-decoration-none border-bottom" href="/" style="color: #ffdb8f;">submission.worldjournalsalert.com</a>.
+                        All Rights Reserved.
+                      </p>
+                      
                     
                     
                 </div>
@@ -87,3 +92,18 @@
     </div>
 </div>
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+<div class="whatsap">
+    <a href="https://wa.me/9214590811" target="_blank">
+        <img alt="" src="img/w.gif" class="img-fluid">
+    </a>
+</div>
+
+<style>
+.whatsap {
+    position: fixed;
+    bottom: 20px;
+    left: 10px;
+    z-index: 999;
+    width: 65px;
+}
+</style>
