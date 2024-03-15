@@ -93,7 +93,7 @@
 </div>
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 <div class="whatsap">
-    <a href="https://wa.me/9214590811" target="_blank">
+    <a href="https://wa.me/9587661488" target="_blank">
         <img alt="" src="img/w.gif" class="img-fluid">
     </a>
 </div>
