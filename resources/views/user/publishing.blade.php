@@ -60,6 +60,12 @@
         width: 100%; 
     }
 }
+@media (max-width: 480px) {
+    .log button {
+        width: 30%; /* Aap yahaan chhoti si width set kar sakte hain */
+    }
+}
+
 
 
     .published-row {
@@ -77,7 +83,7 @@
 </style>
 
 <div style="overflow-x: auto;">
-    <h1>Data Table</h1>
+   
 
    
 @if($data !== null && count($data) > 0)

@@ -121,7 +121,13 @@
             </div>
         </div>
     </div>
-
+    <style>
+        @media (max-width: 767px) {
+               .navbar-collapse {
+                   z-index: 1000; /* Ensure it stays above other content */
+               }
+           }
+       </style>
 
     <script>
         document.getElementById('togglePassword').addEventListener('click', function() {

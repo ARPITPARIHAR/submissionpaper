@@ -470,7 +470,12 @@ display: none !important;
     cursor: pointer;
     font-size:24px;
 }
-
+@media (min-width: 768px) {
+        .log {
+            position: static;
+            width: auto;
+        }
+    }
 </style>
 
 @include('user.includes.footer')

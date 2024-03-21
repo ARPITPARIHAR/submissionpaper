@@ -9,24 +9,21 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormatController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PublishController;
 use App\Http\Controllers\TwillioController;
 use App\Http\Controllers\AdminActionsController;
 use App\Http\Controllers\Auth\PhoneVerificationController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
+
+
+
+
 
 Route::get('/', [HomeController::class, 'home']);
 
-
+Route::get('/contact', [ContactController::class, 'contact']);
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
  
 
 
@@ -49,12 +46,12 @@ Route::get('login/facebook/callback', [LoginController::class, 'handleFacebookCa
 
 //format.................
 
-  Route::middleware(['auth', 'client'])->group(function () {
+//   Route::middleware(['auth', 'client'])->group(function () {
     Route::get('/formating', [FormatController::class, 'format']);
-});
-  //  Route::middleware(['auth'])->group(function () {
-  //  Route::get('/formating', [FormatController::class, 'format']);
-  //  });
+// });
+    // Route::middleware(['auth'])->group(function () {
+    Route::get('/formating', [FormatController::class, 'format']);
+    // });
 
 
 Route::get('/multi', [FormatController::class, 'multi']);
@@ -68,9 +65,9 @@ Route::delete('/users/{id}', [FormatController::class, 'destroy'])->name('users.
 
 //publish....................
 
-    Route::middleware(['auth', 'user'])->group(function () {
+    // Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/publishing', [PublishController::class, 'publish']);
-    });
+    // });
 
 Route::get('/download/{file}', [PublishController::class, 'download']);
 // Route::get('/admin/remove-user/{userId}', [PublishController::class, 'removeUser'])->name('admin.removeUser');
@@ -84,12 +81,11 @@ Route::post('update-status',[CommentController::class, 'updateStatus'])->name('u
 
   
 //admin.................
-
-  //  Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/adminusertable', [AdminActionsController::class, 'showUserTable'])->name('adminusertable');
-      Route::get('/publishing', [PublishController::class, 'publish']);
-       Route::get('/formating', [FormatController::class, 'format']);
-      //  });
+ Route::middleware(['auth', 'admin'])->group(function () {
+      Route::get('/adminusertable', [AdminActionsController::class, 'showUserTable'])->name('adminusertable');
+    // Route::get('/publishing', [PublishController::class, 'publish']);
+    //  Route::get('/formating', [FormatController::class, 'format']);
+  });
 
 
     Route::get('/adminchangepassword{userId}', [AdminActionsController::class, 'showChangePasswordForm'])->name('admin.changePassword');
@@ -115,9 +111,3 @@ Route::post('update-status',[CommentController::class, 'updateStatus'])->name('u
     Route::get('/send-whatsapp', [TwillioController::class, 'sendWhatsAppMessage']);
     
  
-  
- 
-    
-  
-    
-  

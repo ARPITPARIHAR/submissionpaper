@@ -81,6 +81,7 @@
         </div>
     </div>
 </div>
+
 @if (Route::has('register'))
     <div class="text-center mt-3">
         <p>Don't have an account? <a href="{{ route('register') }}" >Register here</a>.</p>
@@ -96,11 +97,15 @@
 @section('script')
 
 @endsection
-
 <style>
-    /* Add this style in your CSS file or in a style tag in your HTML file */
-
-/* Remove the default button border */
+    @media (max-width: 767px) {
+           .navbar-collapse {
+               z-index: 1000; /* Ensure it stays above other content */
+           }
+       }
+   </style>
+<style>
+    
 button.ws-nowrap {
     border: none;
 }

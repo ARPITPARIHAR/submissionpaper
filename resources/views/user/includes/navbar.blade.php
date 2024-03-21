@@ -60,7 +60,6 @@
     
     <div class="nav-container" >
 
-    
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0"style="background-color:#ff0061!important; height:80px;">
          <a href="/" class="navbar-brand p-0">
@@ -68,38 +67,30 @@
 </a>   
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
     <span class="fa fa-bars"></span>
+    <span class="close-icon" style="display: none;"><i class="fa fa-times"></i></span>
 </button>   
 
 
+
+        
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="/" class="nav-item nav-link">Home</a>
                     <a href="about" class="nav-item nav-link">About</a>
                     <a href="/verify" class="nav-item nav-link">Services</a>
-                    <a href="multi" class="nav-item nav-link">Contact</a>
+                    <a href="/contact" class="nav-item nav-link">Contact</a>
                     <a href="formating" class="nav-item nav-link">Submission</a>
                     <a href="publishing" class="nav-item nav-link">Publication</a>
                      <a href="adminusertable" class="nav-item nav-link">AdminPanel</a>
 
-                   <!-- Navbar.blade.php -->
-<!-- Navbar.blade.php -->
+ 
 
 {{-- <li class="nav-item">
     <a class="nav-link" href="{{ route('assign-role.form', ['userId' => $user->id]) }}">Assign Role</a>
 </li> --}}
 
-<!--               <nav class="navbar navbar-expand-lg">-->
-<!--  <a href="/" class="nav-item nav-link">Home</a>-->
-<!--                    <a href="about" class="nav-item nav-link">About</a>-->
-<!--                    <a href="service" class="nav-item nav-link">Services</a>-->
-<!--                    <a href="multi" class="nav-item nav-link">Contact</a>-->
-<!--                    <a href="formating" class="nav-item nav-link">Submission</a>-->
-<!--                    <a href="publishing" class="nav-item nav-link">Publication</a>-->
-<!--                     <a href="adminusertable" class="nav-item nav-link">AdminPanel</a>-->
-
-<!--</nav>     -->
-                 
+<                
                    
                     {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</a>
@@ -128,11 +119,11 @@
 
       
    <style>
-    /* Default styling for the heading */
+    
     .navbar-brand {
-        background-color: initial !important; /* Set the initial background color */
-        text-decoration: none !important; /* Remove default underline style */
-        display: inline-block !important; /* Ensure the link takes only the necessary space */
+        background-color: initial !important; 
+        text-decoration: none !important; 
+        display: inline-block !important; 
     }
 
     /* Default text color */
@@ -143,9 +134,8 @@
      .navbar-toggler .fa-bars {
         color: white !important;
     }
-</style>
-<style>
-    /* Default styling for the heading */
+
+    
     .navbar-brand {
         background-color: initial !important; /* Set the initial background color */
         text-decoration: none !important; /* Remove default underline style */
@@ -157,7 +147,7 @@
         color: white !important;
     }
 
-    /* Style for the navigation links when the navbar is open */
+
     .navbar-collapse.opened {
         background-color: black !important;
         color: black !important;
@@ -167,17 +157,25 @@
         color: white !important;
     }
     
-    
-    
+ 
     
 </style>
+
 <script>
-    // Add an event listener for the Bootstrap collapse 'shown.bs.collapse' event
     $(document).ready(function () {
         $('.navbar-toggler').on('click', function () {
-            // Toggle the 'opened' class on the navbar collapse
             $('.navbar-collapse').toggleClass('opened');
+            $('.fa.fa-bars').toggle(); // Toggle hamburger icon
+            $('.close-icon').toggle(); // Toggle close icon
+        });
+        $('.close-icon').on('click', function () {
+            $('.navbar-collapse').removeClass('opened');
+            $('.fa.fa-bars').toggle(); // Toggle hamburger icon
+            $('.close-icon').toggle(); // Toggle close icon
         });
     });
 </script>
+
+
+
    
