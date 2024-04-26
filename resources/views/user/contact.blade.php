@@ -28,7 +28,7 @@
                     </div>
                     <div class="ps-4">
                         <h5 class="mb-2">Email to get free quote</h5>
-                        <h4 class="text-primary mb-0">info@example.com</h4>
+                        <h4 class="text-primary mb-0">@example.com</h4>
                     </div>
                 </div>
             </div>
@@ -39,33 +39,53 @@
                     </div>
                     <div class="ps-4">
                         <h5 class="mb-2">Visit our office</h5>
-                        <h4 class="text-primary mb-0">123 Street, NY, USA</h4>
+                        <h4 class="text-primary mb-0">Y-18-A, Sudarshana Nagar Bikaner (Rajasthan) 334003</h4>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row g-5">
             <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: slideInUp;">
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+                       
                 <form method="POST" action="{{ route('contact.store') }}">
                     @csrf
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <input type="text" class="form-control border-0 bg-light px-4" name="name" placeholder="Your Name" style="height: 55px;">
+                            <input type="text" class="form-control border-0 bg-light px-4" name="name" placeholder="Your Name" style="height: 55px;" required> <!-- Name field required -->
+                            @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div> <!-- Display error message if name field is blank -->
+                            @enderror
                         </div>
                         <div class="col-md-6">
-                            <input type="email" class="form-control border-0 bg-light px-4" name="email" placeholder="Your Email" style="height: 55px;">
+                            <input type="email" class="form-control border-0 bg-light px-4" name="email" placeholder="Your Email" style="height: 55px;" required> <!-- Email field required -->
+                            @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div> <!-- Display error message if email field is blank or email format is incorrect -->
+                            @enderror
                         </div>
                         <div class="col-12">
-                            <input type="text" class="form-control border-0 bg-light px-4" name="subject" placeholder="Subject" style="height: 55px;">
+                            <input type="text" class="form-control border-0 bg-light px-4" name="subject" placeholder="Subject" style="height: 55px;" required> <!-- Subject field required -->
+                            @error('subject')
+                                <div class="alert alert-danger">{{ $message }}</div> <!-- Display error message if subject field is blank -->
+                            @enderror
                         </div>
                         <div class="col-12">
-                            <textarea class="form-control border-0 bg-light px-4 py-3" name="message"rows="4" placeholder="Message"></textarea>
+                            <textarea class="form-control border-0 bg-light px-4 py-3" name="message" rows="4" placeholder="Message" required></textarea> <!-- Message field required -->
+                            @error('message')
+                                <div class="alert alert-danger">{{ $message }}</div> <!-- Display error message if message field is blank -->
+                            @enderror
                         </div>
                         <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                         </div>
                     </div>
                 </form>
+                
             </div>
             <div class="col-lg-6 wow slideInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: slideInUp;">
               

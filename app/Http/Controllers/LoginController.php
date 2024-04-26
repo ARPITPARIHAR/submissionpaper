@@ -64,40 +64,37 @@ class LoginController extends Controller
      */
     
 
-     public function handleGoogleCallback()
-    {
-        try {
-        
-            $user = Socialite::driver('google')->user();
-         
-            $finduser = User::where('google_id', $user->id)->first();
-         
-            if($finduser){
-         
-                Auth::login($finduser);
-        
-                return redirect()->intended('dashboard');
-         
-            }else{
-                $newUser = User::updateOrCreate(['email' => $user->email],[
-                        'name' => $user->name,
-                        'google_id'=> $user->id,
-                        'password' => encrypt('123456dummy')
-                    ]);
-         
-                Auth::login($newUser);
-        
-                return redirect()->intended('dashboard');
-            }
-        
-        } catch (Exception $e) {
-            dd($e->getMessage());
+    public function handleGoogleCallback()
+{
+    try {
+        $user = Socialite::driver('google')->user();
+     
+        $finduser = User::where('google_id', $user->id)->first();
+     
+        if($finduser){
+     
+            Auth::login($finduser);
+    
+            return redirect()->intended('dashboard');
+     
+        }else{
+            $newUser = User::updateOrCreate(['email' => $user->email],[
+                'name' => $user->name,
+                'google_id'=> $user->id,
+                'password' => encrypt('123456dummy')
+            ]);
+     
+            Auth::login($newUser);
+    
+            return redirect()->intended('dashboard');
         }
+    } catch (\Exception $e) {
+        // Log the error and handle it gracefully
+        \Log::error('Error in handleGoogleCallback: ' . $e->getMessage());
+        return redirect()->route('login')->with('error', 'Google login failed. Please try again.');
     }
-
 }
-
-
+}
 
 
 

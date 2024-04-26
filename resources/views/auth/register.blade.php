@@ -7,7 +7,7 @@
     <div class="container" style="margin-top: 100px;">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card" style="background-color: #e9e6a9a8;">
+                <div class="card" style="background-color: #fcf570dd;">
                     <div class="card-header" style="text-align: center; color:white;background-color:#078ea8;">{{ __('Register') }}</div>
 
                     <div class="card-body">
