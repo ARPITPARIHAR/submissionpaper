@@ -49,9 +49,9 @@ Route::get('login/facebook/callback', [LoginController::class, 'handleFacebookCa
    Route::middleware(['auth', 'client'])->group(function () {
     Route::get('/formating', [FormatController::class, 'format']);
  });
-     Route::middleware(['auth'])->group(function () {
-    Route::get('/formating', [FormatController::class, 'format']);
-     });
+    //  Route::middleware(['auth'])->group(function () {
+    // Route::get('/formating', [FormatController::class, 'format']);
+    //  });
 
 
 Route::get('/multi', [FormatController::class, 'multi']);
@@ -111,3 +111,4 @@ Route::post('update-status',[CommentController::class, 'updateStatus'])->name('u
     Route::get('/send-whatsapp', [TwillioController::class, 'sendWhatsAppMessage']);
     
  
+    

@@ -438,7 +438,7 @@
 
 
 <!-- Team Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+{{-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
             <h5 class="fw-bold text-primary text-uppercase">Team Members</h5>
@@ -498,73 +498,90 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Team End -->
 
 
-<!-- Blog Start -->
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-            <h5 class="fw-bold text-primary text-uppercase">Latest Blog</h5>
-            <h1 class="mb-0">Read The Latest Articles from Our Blog Post</h1>
+            <h5 class="fw-bold text-primary text-uppercase">Frequently Asked Questions</h5>
+            <h1 class="mb-0">Explore Answers to Common Queries</h1>
         </div>
         <div class="row g-5">
-            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                <div class="blog-item bg-light rounded overflow-hidden">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img class="img-fluid" src="img/blog-1.jpg" alt="">
-                        <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">Web Design</a>
-                    </div>
-                    <div class="p-4">
-                        <div class="d-flex mb-3">
-                            <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
-                            <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
+            <div class="col-lg-12">
+                <div class="accordion" id="faqAccordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                How do I submit my paper for formatting?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                To submit your paper for formatting, please visit the submission page on our website and follow the instructions provided. You will need to upload your paper in the required format, along with any specific guidelines or instructions.
+                            </div>
                         </div>
-                        <h4 class="mb-3">How to build a website</h4>
-                        <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                        <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-                <div class="blog-item bg-light rounded overflow-hidden">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img class="img-fluid" src="img/blog-2.jpg" alt="">
-                        <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">Web Design</a>
-                    </div>
-                    <div class="p-4">
-                        <div class="d-flex mb-3">
-                            <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
-                            <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How long does the formatting process take?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                The duration of the formatting process depends on various factors such as the length and complexity of your paper, as well as our current workload. However, we strive to complete the formatting of your paper within [insert timeframe].
+                            </div>
                         </div>
-                        <h4 class="mb-3">How to build a website</h4>
-                        <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                        <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                <div class="blog-item bg-light rounded overflow-hidden">
-                    <div class="blog-img position-relative overflow-hidden">
-                        <img class="img-fluid" src="img/blog-3.jpg" alt="">
-                        <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">Web Design</a>
-                    </div>
-                    <div class="p-4">
-                        <div class="d-flex mb-3">
-                            <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
-                            <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Can I track the progress of my paper?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, you can track the progress of your paper by logging into your account on our website. Once logged in, you will be able to view the status of your submission and any updates provided by our team.
+                            </div>
                         </div>
-                        <h4 class="mb-3">How to build a website</h4>
-                        <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                        <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>
                     </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Are there any additional fees for rush formatting services?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, we offer rush formatting services for urgent deadlines. Please contact our support team for more information on additional fees and availability.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Do you provide formatting services for specific journal guidelines?
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, we specialize in formatting papers according to the guidelines of various journals. Please provide us with the specific journal requirements, and we will ensure that your paper meets all necessary formatting criteria.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more FAQ items as needed -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Blog Start -->
 
 
 <!-- Vendor Start -->

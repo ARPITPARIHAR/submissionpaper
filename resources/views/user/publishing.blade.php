@@ -21,7 +21,7 @@
         width: 80%;
         border-collapse: collapse;
         margin: 20px auto;
-        margin-top: 80px;
+        margin-top: 100px;
     }
 
     table.table th,
