@@ -14,7 +14,7 @@
 
 <style>
     table {
-        margin: 70px 80px 20px 30px; 
+        margin: 70px 80px 30px 40px; 
     }
 
     table.table {
@@ -66,6 +66,18 @@
     }
 }
 
+
+.footer {
+    margin-top: auto; /* Push the footer to the bottom */
+    margin-bottom: 0; /* Remove any bottom margin */
+    padding-bottom: 0; /* Remove any bottom padding */
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
 
 
     .published-row {

@@ -68,11 +68,12 @@
                     <h5 class="fw-bold text-primary text-uppercase">About Us</h5>
                     <h1 class="mb-0">The Best Paper Formatting With 10 Years of Experience</h1>
                 </div>
-                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
+                <p class="mb-3" style="font-size: 18px;">At our core, we are passionate about providing top-notch paper formatting services that exceed your expectations. With a team of dedicated professionals, we strive to deliver exceptional results that showcase your work in the best possible light.</p>
+
                 <div class="row g-0 mb-3">
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                        <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Award Winning</h5>
-                        <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Professional Staff</h5>
+                        <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Optimized Publication Workflow</h5>
+                        <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Streamlined Manuscript Preparation</h5>
                     </div>
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
                         <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>24/7 Support</h5>
@@ -88,7 +89,7 @@
                         <h4 class="text-primary mb-0">+012 345 6789</h4>
                     </div>
                 </div>
-                <a href="quote.html" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Request A Quote</a>
+                {{-- <a href="quote.html" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Request A Quote</a> --}}
             </div>
             <div class="col-lg-5" style="min-height: 500px;">
                 <div class="position-relative h-100">
@@ -113,21 +114,21 @@
                 <div class="row g-5">
                     <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
                         <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-cubes text-white"></i>
+                            <i class="fas fa-pen-nib text-white"></i>
                         </div>
-                        <h4>Best In Industry</h4>
-                        <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                        <h4>Cutting-Edge Paper Design</h4>
+                        <p class="mb-0">Our journal formatting services offer cutting-edge paper design that ensures your work stands out in the industry. We employ modern techniques and design principles to enhance the visual appeal and readability of your papers.</p>
                     </div>
                     <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
                         <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-award text-white"></i>
+                            <i class="fas fa-trophy text-white"></i>
                         </div>
-                        <h4>Award Winning</h4>
-                        <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                        <h4>Recognized Excellence</h4>
+                        <p class="mb-0">With numerous awards under our belt, we pride ourselves on our recognized excellence in formatting journals and papers. Our commitment to quality and innovation has been acknowledged by prestigious institutions and organizations.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
+            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
                 <div class="position-relative h-100">
                     <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s" src="img/feature.jpg" style="object-fit: cover;">
                 </div>
@@ -136,19 +137,22 @@
                 <div class="row g-5">
                     <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
                         <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-users-cog text-white"></i>
+                            <i class="fas fa-user-cog text-white"></i>
                         </div>
-                        <h4>Professional Staff</h4>
-                        <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                        <h4>Expert Editorial Team</h4>
+                        <p class="mb-0">Our team of professionals consists of expert editors and formatters dedicated to refining your work to perfection. With their keen eye for detail and vast experience, you can trust your papers to be in capable hands.</p>
                     </div>
                     <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
                         <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                            <i class="fa fa-phone-alt text-white"></i>
+                            <i class="fas fa-headset text-white"></i>
                         </div>
-                        <h4>24/7 Support</h4>
-                        <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                        <h4>Round-the-Clock Assistance</h4>
+                        <p class="mb-0">We provide 24/7 support to address any queries or concerns you may have regarding our formatting services. Our dedicated support team ensures prompt assistance and seamless communication throughout the process.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+        
             </div>
         </div>
     </div>
@@ -161,7 +165,7 @@
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
             <h5 class="fw-bold text-primary text-uppercase">Our Services</h5>
-            <h1 class="mb-0">Custom IT Solutions for Your Successful Business</h1>
+            <h1 class="mb-0">Tailored Publication Formatting for Your Research Papers</h1>
         </div>
         <div class="row g-5">
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
@@ -169,8 +173,8 @@
                     <div class="service-icon">
                         <i class="fa fa-shield-alt text-white"></i>
                     </div>
-                    <h4 class="mb-3">Cyber Security</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
+                    <h4 class="mb-3" style="color:#f0147d;">Publication Formatting</h4>
+        <p class="m-0">Expert formatting services tailored to meet the rigorous standards of academic journals, ensuring your research is presented professionally and accurately.</p>
                     <a class="btn btn-lg btn-primary rounded" href="">
                         <i class="bi bi-arrow-right"></i>
                     </a>
@@ -181,8 +185,9 @@
                     <div class="service-icon">
                         <i class="fa fa-chart-pie text-white"></i>
                     </div>
-                    <h4 class="mb-3">Data Analytics</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
+                    <h4 class="mb-3" style="color:#f0147d;">Manuscript Preparation</h4>
+        <p class="m-0">From initial submission to final formatting, we assist authors in preparing manuscripts that adhere to journal guidelines, facilitating a smoother publication process.</p>
+                    <a class="btn btn-lg btn-primary rounded" href=""> <!-- Add a relevant link here -->
                     <a class="btn btn-lg btn-primary rounded" href="">
                         <i class="bi bi-arrow-right"></i>
                     </a>
@@ -193,8 +198,8 @@
                     <div class="service-icon">
                         <i class="fa fa-code text-white"></i>
                     </div>
-                    <h4 class="mb-3">Web Development</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
+                    <h4 class="mb-3" style="color:#f0147d;">Quality Assurance</h4>
+        <p class="m-0">With meticulous attention to detail, we ensure that your manuscript meets the highest standards of quality and accuracy, adhering to journal-specific guidelines and formatting requirements.</p>
                     <a class="btn btn-lg btn-primary rounded" href="">
                         <i class="bi bi-arrow-right"></i>
                     </a>
@@ -205,8 +210,8 @@
                     <div class="service-icon">
                         <i class="fab fa-android text-white"></i>
                     </div>
-                    <h4 class="mb-3">Apps Development</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
+                    <h4 class="mb-3" style="color:#f0147d;">Editorial Support</h4>
+        <p class="m-0">Our experienced team provides comprehensive editorial support, including manuscript review, language editing, and formatting assistance, ensuring clarity and coherence in your research publication.</p>
                     <a class="btn btn-lg btn-primary rounded" href="">
                         <i class="bi bi-arrow-right"></i>
                     </a>
@@ -217,20 +222,26 @@
                     <div class="service-icon">
                         <i class="fa fa-search text-white"></i>
                     </div>
-                    <h4 class="mb-3">SEO Optimization</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
+                    <h4 class="mb-3" style="color:#f0147d;">Quality Control</h4>
+                    <p class="m-0">We implement rigorous quality control measures to ensure the integrity and reliability of peer review reports, maintaining the highest standards of scholarly publishing.</p>
                     <a class="btn btn-lg btn-primary rounded" href="">
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-                <div class="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
-                    <h3 class="text-white mb-3">Call Us For Quote</h3>
-                    <p class="text-white mb-3">Clita ipsum magna kasd rebum at ipsum amet dolor justo dolor est magna stet eirmod</p>
-                    <h2 class="text-white mb-0">+012 345 6789</h2>
+            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div class="service-icon">
+                        <i class="fa fa-search text-white"></i>
+                    </div>
+                    <h4 class="mb-3" style="color:#f0147d;">Reviewer Assignment</h4>
+                    <p class="m-0">We streamline the process of assigning suitable reviewers to research manuscripts, ensuring expertise, impartiality, and timeliness in the peer review process.</p>
+                    <a class="btn btn-lg btn-primary rounded" href="">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
                 </div>
             </div>
+           
         </div>
     </div>
 </div>
@@ -309,7 +320,7 @@
 
 
 <!-- Quote Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+{{-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-7">
@@ -325,7 +336,7 @@
                         <h5 class="mb-4"><i class="fa fa-phone-alt text-primary me-3"></i>24 hrs telephone support</h5>
                     </div>
                 </div>
-                <p class="mb-4">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed.</p>
+                <p class="mb-4">Get a free quote from us today! Our team is ready to assist you with any questions you may have. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet dolor et dolor et sit amet sea justo et amet.</p>
                 <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
                     <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
                         <i class="fa fa-phone-alt text-white"></i>
@@ -338,24 +349,18 @@
             </div>
             <div class="col-lg-5">
                 <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                    <form>
+                    <form action="{{ route('submit.form') }}" method="POST">
+
+                        @csrf 
                         <div class="row g-3">
                             <div class="col-xl-12">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;">
+                                <input type="text" class="form-control bg-light border-0" name="name" placeholder="Your Name" style="height: 55px;" required>
                             </div>
                             <div class="col-12">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
+                                <input type="email" class="form-control bg-light border-0"  name="email" placeholder="Your Email" style="height: 55px;" required>
                             </div>
                             <div class="col-12">
-                                <select class="form-select bg-light border-0" style="height: 55px;">
-                                    <option selected>Select A Service</option>
-                                    <option value="1">Service 1</option>
-                                    <option value="2">Service 2</option>
-                                    <option value="3">Service 3</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
+                                <textarea class="form-control bg-light border-0" rows="3" name="message" placeholder="Message" required></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-dark w-100 py-3" type="submit">Request A Quote</button>
@@ -366,7 +371,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Quote End -->
 
 

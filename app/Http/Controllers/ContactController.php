@@ -30,7 +30,7 @@ class ContactController extends Controller
         $data->name=$request->name;
         $data->email=$request->email;
       
-        $data->subject=$request->subject;
+       
         $data->message=$request->message;
        
         $data->save();
