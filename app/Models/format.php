@@ -12,6 +12,9 @@ class Format extends Model
 
     protected $fillable = ['journal_name', 'title', 'file_content', 'status', 'pdf', 'url', 'user_id'];
 
+
+
+    
     public function comments()
     {
         return $this->hasMany(CommentTable::class, 'format_id', 'id');

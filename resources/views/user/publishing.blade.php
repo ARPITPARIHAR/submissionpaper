@@ -43,13 +43,14 @@
     }
 
     .log button {
-    background-color: #dc3545;
+    background-color: #e16d79;
     color: #fff;
     border: none;
     cursor: pointer;
     float: right;
     margin-top: 5px; 
     padding: 8px 16px; 
+    border-radius: 15px;
 }
 
 @media (max-width: 767px) {

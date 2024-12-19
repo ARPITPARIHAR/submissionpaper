@@ -10,183 +10,154 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    
-    <style>
-       
-       .drop-box {
-    border: 2px dashed white;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color 0.3s;
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 500px; 
-    margin-left:350px; 
-    margin-right:350px; 
-    background-image: url('img/dragbox.jpg');
-}
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 80px;">
+        <!-- Center the welcome message -->
+        <div style="flex: 1; text-align: center;">
+            @if(Auth::check())
+                <p style="font-size: 20px; margin: 0;">Welcome, {{ Auth::user()->name }}</p>
+            @endif
+        </div>
 
-
-        .drop-box:hover {
-            border-color: black;
-        }
-
-        .icon {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-        label {
-        display: block;
-        margin-top: 10px;
-        font-weight: bold;
-        color: #555;
-    }
-
-    input {
-        width: 100%;
-        padding: 10px;
-        margin-top: 6px;
-        margin-bottom: 12px;
-        box-sizing: border-box;
-        border: 1px solid #cb0f54;
-        border-radius: 10px;
-        transition: border-color 0.3s;
-    }
-
-    input:focus {
-        border-color: #07154fef;
-        outline: none;
-    }
-    #fileInput {
-        display: none;
-    }
-
-    .custom-file-upload {
-        display: inline-block;
-        padding: 10px 15px;
-        cursor: pointer;
-        background-color: #192151;
-        color: white;
-        border: none;
-        border-radius: 4px;
-    }
-
-    form {
-    display: inline;
-}
-
-.log button {
-    background-color: #2a1a66;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    float: right;
-    font-size: 17px;
-    margin-top: -650px !important; 
-    padding: 10px 15px;
-    border-radius: 10px;
-}
-
-    @media only screen and (max-width: 768px) {
-            .drop-box {
-                margin-left: 5px; /* Adjusted margin for smaller screens */
-                margin-right: 5px; /* Adjusted margin for smaller screens */
-                height: 500px; /* Adjusted height for smaller screens */
-            }
-        }
-    /* .center-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 15px;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: none; /* Initially hide the message */
-        
-
-        /* .closing-button {
-            cursor: pointer;
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            font-size: 18px;
-            color: white;
-        } */ */
-        .rounded-button {
-    border-radius: 10px;
-}
-
-
-.label[for="journalName"] {
-    font-weight: bold !important;
-    color: #007BFF !important;
-    font-size: 16px !important;
-    margin-bottom: 8px !important;
-    display: block !important;
-}
-
-        
-    </style>
-</head>
-
-
-
-<div style="overflow-x: auto;">
-
-    @if(Auth::check())
-        <p style="margin-top: 80px; text-align:center; font-size:20px;">Welcome, {{ Auth::user()->name }}</p>
-    @endif
-
-</div>
-
-
-
-
-
-<form action="{{ route('upload.store') }}" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-    @csrf
-
-    <div class="drop-box" id="dropArea" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <label for="journalName" style=" color:white; font-size: 18px; margin-bottom: 8px; display: block;">Journal Name</label>
-
-        <input type="text" name="journalName" id="journalName">
-
-        <label for="title" style=" color:white; font-size: 18px; margin-bottom: 8px; display: block;">Title Name</label>
-        <input type="text" name="title" id="title">
-        <br>
-        <i class="icon fas fa-cloud-upload-alt"></i>
-        <p style="color: white;">Drag & Drop your file here<br>or click to browse</p>
-
-        <label for="fileInput" class="custom-file-upload">Choose File</label>
-        
-        <input type="file" name="file" id="fileInput" onchange="updateFileName(this)" accept=".doc, .docx, .pdf">
-
-        <div id="selectedFileName" style="color: white"></div>
-        <div id="fileErrorMessage" style="color:white;"></div>
-
-        <br>
-        <br>
-        <button type="submit" class="btn btn-primary" style="border-radius: 5px;">Submit</button>
-
-
+        <!-- Right-aligned logout button -->
+        <form method="POST" action="{{ route('logout') }}" style="margin: 0;">
+            @csrf
+            <button type="submit" style="
+                background: linear-gradient(135deg, #ff7b54, #ffcc29);
+                border: none;
+                color: white;
+                padding: 12px 28px;
+                font-size: 18px;
+                font-weight: bold;
+                border-radius: 30px;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease, box-shadow 0.2s ease;">
+                <i class="fa fa-sign-out" aria-hidden="true" style="font-size: 20px;"></i> Logout
+            </button>
+        </form>
     </div>
 
 
-    
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 60px;">
+        <form
+            action="{{ route('upload.store') }}"
+            method="post"
+            enctype="multipart/form-data"
+            onsubmit="return validateForm()"
+            style="width: 90%; max-width: 500px; background: #f9f9f9; border: 1px solid #dcdcdc; border-radius: 15px; padding: 25px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);">
+
+            @csrf
+
+            <!-- Form Header -->
+            <h2 style="text-align: center; color: #333; font-family: 'Arial', sans-serif; margin-bottom: 20px;">
+                Upload  Documents
+            </h2>
+
+            <!-- Journal Name -->
+            <label for="journalName" style="color: #333; font-size: 16px; font-weight: bold; display: block; margin-bottom: 10px;">
+                Journal Name
+            </label>
+            <input
+                type="text"
+                name="journalName"
+                id="journalName"
+                placeholder="Enter Journal Name"
+                style="width: 100%; padding: 12px; border: 1px solid #dcdcdc; border-radius: 8px; margin-bottom: 15px; font-size: 14px;">
+
+            <!-- Title Name -->
+            <label for="title" style="color: #333; font-size: 16px; font-weight: bold; display: block; margin-bottom: 10px;">
+                Title Name
+            </label>
+            <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Enter Title Name"
+                style="width: 100%; padding: 12px; border: 1px solid #dcdcdc; border-radius: 8px; margin-bottom: 15px; font-size: 14px;">
+
+            <!-- File Upload -->
+            <!-- File Upload -->
+<div style="text-align: center; margin-top: 20px;">
+    <label
+        for="fileInput"
+        style="display: inline-block; background: #007bff;width: 100% ;color: white; padding: 12px 30px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 16px; transition: background 0.3s;">
+        <i class="fas fa-upload" style="margin-right: 8px;"></i> Choose File
+    </label>
+    <input
+        type="file"
+        name="file"
+        id="fileInput"
+        onchange="updateFileName(this)"
+        accept=".doc, .docx, .pdf"
+        style="display: none;">
+</div>
+
+<div id="selectedFileName"
+     style="text-align: center; color: #555; font-size: 14px; margin-top: 10px; font-style: italic;">
+</div>
+<div id="fileErrorMessage"
+     style="text-align: center; color: red; font-size: 14px; margin-top: 10px;">
+</div>
+
+            <!-- Submit Button -->
+            <div style="text-align: center; margin-top: 20px;">
+                <button
+                    type="submit"
+                    style="padding: 12px 24px; background: #000000; border: none; border-radius: 8px; color: white; font-size: 16px; font-weight: bold; cursor: pointer; transition: background 0.3s;">
+                    Submit
+                </button>
+            </div>
+
+        </form>
+    </div>
+
     <script>
         function updateFileName(input) {
-            
+            const fileName = input.files[0] ? input.files[0].name : '';
+            document.getElementById('selectedFileName').textContent = fileName
+                ? `Selected File: ${fileName}`
+                : '';
+        }
+
+        function validateForm() {
+            const journalName = document.getElementById('journalName').value.trim();
+            const title = document.getElementById('title').value.trim();
+            const fileInput = document.getElementById('fileInput').files.length;
+
+            if (!journalName || !title || !fileInput) {
+                document.getElementById('fileErrorMessage').textContent =
+                    'Please complete all fields and upload a file.';
+                return false;
+            }
+
+            document.getElementById('fileErrorMessage').textContent = '';
+            return true;
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+    <script>
+        function updateFileName(input) {
+
             var fileName = input.files[0].name;
 
-          
+
             document.getElementById('selectedFileName').innerText = 'Selected File: ' + fileName;
         }
 
@@ -215,19 +186,11 @@
                 document.getElementById('fileErrorMessage').innerText = "";
             }
 
-            return true; 
+            return true;
         }
-    </script>
 </form>
+</script>
 
-<form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <div class="log">
-        <button type="submit" class="btn btn-warning">
-            <i class="fa fa-sign-out" aria-hidden="true" style="color: white;"></i> Logout
-        </button>
-    </div>
-</form>
 
 
 </div>
@@ -267,7 +230,7 @@
         var output = [];
         for (var i = 0; i < files.length; i++) {
             output.push('<li>', files[i].name, '</li>');
-            
+
         }
         document.getElementById('fileInput').files = files;
         document.getElementById('dropArea').innerHTML = '<ul>' + output.join('') + '</ul>';
@@ -310,7 +273,7 @@
         fileInput.addEventListener("change", function () {
             if (!isValidFile(fileInput)) {
                 showCustomModal("Invalid File", "Please select a valid file (doc, docx, or pdf).");
-                fileInput.value = "";  
+                fileInput.value = "";
             }
         });
 
@@ -344,7 +307,7 @@
         fileInput.addEventListener("change", function () {
             if (!isValidFile(fileInput)) {
                 customModal.style.display = "block";
-                fileInput.value = "";  
+                fileInput.value = "";
             }
         });
 
@@ -370,7 +333,7 @@
         fileInput.addEventListener("change", function () {
             if (!isValidFile(fileInput)) {
                 errorMessage.innerText = "Please select a valid file (doc, docx, or pdf).";
-                fileInput.value = "";  
+                fileInput.value = "";
             } else {
                 errorMessage.innerText = "";
             }
@@ -392,7 +355,7 @@
         $(this).toggleClass('active');
         $('.menu-items').toggleClass('active');
       });
-      
+
     });
   </script>
 
@@ -424,7 +387,7 @@
                 <div class="modal-body">
                     <p>{{ session('centerSuccess') }}</p>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -481,10 +444,9 @@ display: none !important;
 @include('user.includes.footer')
 
 @section('style')
-    
+
 @endsection
 @section('script')
-    
+
 @endsection
 
-    

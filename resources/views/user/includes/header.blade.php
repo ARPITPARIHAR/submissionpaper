@@ -1,4 +1,4 @@
-{{-- <div class="modal fade" id="searchModal" tabindex="-1">
+<div class="modal fade" id="searchModal" tabindex="-1">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
             <div class="modal-header border-0">
@@ -12,18 +12,18 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 <!-- Full Screen Search End -->
 
 
 <!-- Facts Start -->
-<div class="container-fluid facts py-5 pt-lg-0" style="margin-top: 400px;">
-    <div class="container py-5 pt-lg-0">
-        <div class="row gx-0">
-            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
+{{-- class="row gx-0"> --}}
+            {{-- <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
                 <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
                     <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                        <i class="fa fa-users text-primary"></i>
+                      <div class="container-fluid facts py-5 pt-lg-0" style="margin-top: 400px;">
+    <div class="container py-5 pt-lg-0">
+        <div   <i class="fa fa-users text-primary"></i>
                     </div>
                     <div class="ps-4">
                         <h5 class="text-white mb-0">Happy Clients</h5>
@@ -55,7 +55,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Facts Start -->
 
 
@@ -65,10 +65,15 @@
         <div class="row g-5">
             <div class="col-lg-7">
                 <div class="section-title position-relative pb-3 mb-5">
-                    <h5 class="fw-bold text-primary text-uppercase">About Us</h5>
+                    <h5 class="fw-bold text-uppercase about-heading">About Us</h5>
+
+
                     <h1 class="mb-0">The Best Paper Formatting With 10 Years of Experience</h1>
                 </div>
-                <p class="mb-3" style="font-size: 18px;">At our core, we are passionate about providing top-notch paper formatting services that exceed your expectations. With a team of dedicated professionals, we strive to deliver exceptional results that showcase your work in the best possible light.</p>
+                <p class="mb-3" style="font-size:18px;">
+                    At our core, we are passionate about providing top-notch paper formatting services that exceed your expectations. With a team of dedicated professionals, we strive to deliver exceptional results that showcase your work in the best possible light. Our attention to detail ensures that every paper is meticulously formatted to perfection, reflecting your commitment to excellence. We understand the importance of a well-structured presentation, which is why we go the extra mile to ensure clarity, consistency, and style. Whether it's academic, business, or personal content, we tailor our services to meet your specific needs, ensuring your work stands out with sophistication and professionalism.
+                </p>
+
 
                 <div class="row g-0 mb-3">
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
@@ -86,7 +91,7 @@
                     </div>
                     <div class="ps-4">
                         <h5 class="mb-2">Call to ask any question</h5>
-                        <h4 class="text-primary mb-0">+012 345 6789</h4>
+                        <h4 class=" mb-0">+012 345 6789</h4>
                     </div>
                 </div>
                 {{-- <a href="quote.html" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Request A Quote</a> --}}
@@ -106,7 +111,7 @@
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-            <h5 class="fw-bold text-primary text-uppercase">Why Choose Us</h5>
+            <h5 class="fw-bold text-uppercase about-heading" >Why Choose Us</h5>
             <h1 class="mb-0">We Are Here to Grow Your Business Exponentially</h1>
         </div>
         <div class="row g-5">
@@ -152,7 +157,7 @@
                 </div>
             </div>
         </div>
-        
+
             </div>
         </div>
     </div>
@@ -164,84 +169,73 @@
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-            <h5 class="fw-bold text-primary text-uppercase">Our Services</h5>
+            <h5 class="fw-bold text-uppercase about-heading">Our Services</h5>
             <h1 class="mb-0">Tailored Publication Formatting for Your Research Papers</h1>
         </div>
         <div class="row g-5">
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="service-item  rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: navy;">
                     <div class="service-icon">
                         <i class="fa fa-shield-alt text-white"></i>
                     </div>
-                    <h4 class="mb-3" style="color:#f0147d;">Publication Formatting</h4>
-        <p class="m-0">Expert formatting services tailored to meet the rigorous standards of academic journals, ensuring your research is presented professionally and accurately.</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
+                    <h4 class="mb-3" style="color:#d8ff02;">Publication Formatting</h4>
+        <p class="m-0" style="color:white;">Expert formatting services tailored to meet the rigorous standards of academic journals, ensuring your research is presented professionally and accurately.</p>
+                {{-- <a class="btn btn-lg btn-primary rounded" href="">
                         <i class="bi bi-arrow-right"></i>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="service-item  rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: navy;">
                     <div class="service-icon">
                         <i class="fa fa-chart-pie text-white"></i>
                     </div>
-                    <h4 class="mb-3" style="color:#f0147d;">Manuscript Preparation</h4>
-        <p class="m-0">From initial submission to final formatting, we assist authors in preparing manuscripts that adhere to journal guidelines, facilitating a smoother publication process.</p>
-                    <a class="btn btn-lg btn-primary rounded" href=""> <!-- Add a relevant link here -->
-                    <a class="btn btn-lg btn-primary rounded" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
+                    <h4 class="mb-3" style="color:#d8ff02;">Manuscript Preparation</h4>
+        <p class="m-0" style="color:white;">From initial submission to final formatting, we assist authors in preparing manuscripts that adhere to journal guidelines, facilitating a smoother publication process.</p>
+
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="service-item rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: navy;">
                     <div class="service-icon">
                         <i class="fa fa-code text-white"></i>
                     </div>
-                    <h4 class="mb-3" style="color:#f0147d;">Quality Assurance</h4>
-        <p class="m-0">With meticulous attention to detail, we ensure that your manuscript meets the highest standards of quality and accuracy, adhering to journal-specific guidelines and formatting requirements.</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
+                    <h4 class="mb-3" style="color:#d8ff02;">Quality Assurance</h4>
+        <p class="m-0" style="color:white;">With meticulous attention to detail, we ensure that your manuscript meets the highest standards of quality and accuracy, adhering to journal-specific guidelines and formatting requirements.</p>
+
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="service-item  rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: navy;">
                     <div class="service-icon">
                         <i class="fab fa-android text-white"></i>
                     </div>
-                    <h4 class="mb-3" style="color:#f0147d;">Editorial Support</h4>
-        <p class="m-0">Our experienced team provides comprehensive editorial support, including manuscript review, language editing, and formatting assistance, ensuring clarity and coherence in your research publication.</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
+                    <h4 class="mb-3" style="color:#d8ff02;">Editorial Support</h4>
+        <p class="m-0" style="color:white;">Our experienced team provides comprehensive editorial support, including manuscript review, language editing, and formatting assistance, ensuring clarity and coherence in your research publication.</p>
+
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="service-item  rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: navy;">
                     <div class="service-icon">
                         <i class="fa fa-search text-white"></i>
                     </div>
-                    <h4 class="mb-3" style="color:#f0147d;">Quality Control</h4>
-                    <p class="m-0">We implement rigorous quality control measures to ensure the integrity and reliability of peer review reports, maintaining the highest standards of scholarly publishing.</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
+                    <h4 class="mb-3" style="color:#d8ff02;">Quality Control</h4>
+                    <p class="m-0" style="color:white;">We implement rigorous quality control measures to ensure the integrity and reliability of peer review reports, maintaining the highest standards of scholarly publishing.</p>
+
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="service-item rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: navy;">
                     <div class="service-icon">
                         <i class="fa fa-search text-white"></i>
                     </div>
-                    <h4 class="mb-3" style="color:#f0147d;">Reviewer Assignment</h4>
-                    <p class="m-0">We streamline the process of assigning suitable reviewers to research manuscripts, ensuring expertise, impartiality, and timeliness in the peer review process.</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
+                    <h4 class="mb-3" style="color:#d8ff02;">Reviewer Assignment</h4>
+                    <p class="m-0" style="color:white;">We streamline the process of assigning suitable reviewers to research manuscripts, ensuring expertise, impartiality, and timeliness in the peer review process.</p>
+
                 </div>
             </div>
-           
+
         </div>
     </div>
 </div>
@@ -351,7 +345,7 @@
                 <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
                     <form action="{{ route('submit.form') }}" method="POST">
 
-                        @csrf 
+                        @csrf
                         <div class="row g-3">
                             <div class="col-xl-12">
                                 <input type="text" class="form-control bg-light border-0" name="name" placeholder="Your Name" style="height: 55px;" required>
@@ -379,7 +373,7 @@
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
-            <h5 class="fw-bold text-primary text-uppercase">Testimonial</h5>
+            <h5 class="fw-bold text-uppercase about-heading">Testimonial</h5>
             <h1 class="mb-0">What Our Clients Say About Our Digital Services</h1>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.6s">
@@ -503,79 +497,89 @@
 
 
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container py-5">
+    <div class="container py-5"style="background-color:# 180ab5 !important";>
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-            <h5 class="fw-bold text-primary text-uppercase">Frequently Asked Questions</h5>
+            <h5 class="fw-bold text-uppercase about-heading">Frequently Asked Questions</h5>
             <h1 class="mb-0">Explore Answers to Common Queries</h1>
         </div>
-        <div class="row g-5">
-            <div class="col-lg-12">
-                <div class="accordion" id="faqAccordion">
+        <div class="row g-5" >
+
+            <div class="accordion" id="faqAccordion" style=" padding: 20px; border-radius: 16px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);">
+
+                <div class="accordion" id="faqAccordion" style="margin-bottom: 15px;">
+
                     <!-- FAQ Item 1 -->
-                    <div class="accordion-item">
+                    <div class="accordion-item" style="margin-bottom: 15px; border: none;">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="background-color: #ffffff; color: #2575fc; font-weight: 600; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);">
                                 How do I submit my paper for formatting?
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
+                            <div class="accordion-body" style="background-color: #f9f9f9; border-radius: 8px; padding: 15px; color: #333; font-size: 15px;">
                                 To submit your paper for formatting, please visit the submission page on our website and follow the instructions provided. You will need to upload your paper in the required format, along with any specific guidelines or instructions.
                             </div>
                         </div>
                     </div>
+
                     <!-- FAQ Item 2 -->
-                    <div class="accordion-item">
+                    <div class="accordion-item" style="margin-bottom: 15px; border: none;">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color: #ffffff; color: #2575fc; font-weight: 600; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);">
                                 How long does the formatting process take?
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                The duration of the formatting process depends on various factors such as the length and complexity of your paper, as well as our current workload. However, we strive to complete the formatting of your paper within [insert timeframe].
+                            <div class="accordion-body" style="background-color: #f9f9f9; border-radius: 8px; padding: 15px; color: #333; font-size: 15px;">
+                                The duration of the formatting process depends on factors such as the length and complexity of your paper, as well as our current workload. However, we strive to complete the formatting within [insert timeframe].
                             </div>
                         </div>
                     </div>
+
                     <!-- FAQ Item 3 -->
-                    <div class="accordion-item">
+                    <div class="accordion-item" style="margin-bottom: 15px; border: none;">
                         <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="background-color: #ffffff; color: #2575fc; font-weight: 600; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);">
                                 Can I track the progress of my paper?
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Yes, you can track the progress of your paper by logging into your account on our website. Once logged in, you will be able to view the status of your submission and any updates provided by our team.
+                            <div class="accordion-body" style="background-color: #f9f9f9; border-radius: 8px; padding: 15px; color: #333; font-size: 15px;">
+                                Yes, you can track the progress of your paper by logging into your account on our website. Once logged in, you will be able to view the status of your submission and updates from our team.
                             </div>
                         </div>
                     </div>
+
                     <!-- FAQ Item 4 -->
-                    <div class="accordion-item">
+                    <div class="accordion-item" style="margin-bottom: 15px; border: none;">
                         <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="background-color: #ffffff; color: #2575fc; font-weight: 600; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);">
                                 Are there any additional fees for rush formatting services?
                             </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
+                            <div class="accordion-body" style="background-color: #f9f9f9; border-radius: 8px; padding: 15px; color: #333; font-size: 15px;">
                                 Yes, we offer rush formatting services for urgent deadlines. Please contact our support team for more information on additional fees and availability.
                             </div>
                         </div>
                     </div>
+
                     <!-- FAQ Item 5 -->
-                    <div class="accordion-item">
+                    <div class="accordion-item" style="margin-bottom: 15px; border: none;">
                         <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" style="background-color: #ffffff; color: #6a11cb; font-weight: 600; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);">
                                 Do you provide formatting services for specific journal guidelines?
                             </button>
                         </h2>
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Yes, we specialize in formatting papers according to the guidelines of various journals. Please provide us with the specific journal requirements, and we will ensure that your paper meets all necessary formatting criteria.
+                            <div class="accordion-body" style="background-color: #f9f9f9; border-radius: 8px; padding: 15px; color: #333; font-size: 15px;">
+                                Yes, we specialize in formatting papers according to the guidelines of various journals. Please provide the specific journal requirements, and we will ensure your paper meets all criteria.
                             </div>
                         </div>
                     </div>
+
+                </div>
+
                     <!-- Add more FAQ items as needed -->
                 </div>
             </div>
@@ -602,3 +606,26 @@
         </div>
     </div>
 </div>
+<style>
+    .about-heading {
+        font-size: 1.5rem; /* बड़ा और प्रमुख टेक्स्ट */
+        letter-spacing: 2px; /* थोड़ा स्पेसिंग जो टेक्स्ट को ब्रांडेड लुक देता है */
+        color: #fdfdfd; /* टेक्स्ट का हल्का रंग */
+        background: linear-gradient(90deg, #8C0001, #D10024); /* ग्रेडिएंट प्रभाव */
+        padding: 10px 20px; /* पैडिंग इसे बॉक्स जैसा बनाता है */
+        border-radius: 8px; /* बॉर्डर को हल्का गोल करता है */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* टेक्स्ट के पीछे शैडो */
+        display: inline-block; /* इसे अलग और केंद्रित लुक देता है */
+        text-align: center; /* टेक्स्ट को बीच में रखता है */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* टेक्स्ट को हल्का गहराई देता है */
+    }
+
+    .about-heading:hover {
+        background: linear-gradient(90deg, #D10024, #8C0001); /* होवर पर रंग उल्टा हो जाता है */
+        transform: scale(1.05); /* हल्का बड़ा होने का प्रभाव */
+        transition: all 0.3s ease-in-out; /* एनिमेशन स्मूथनेस */
+    }
+
+
+
+</style>

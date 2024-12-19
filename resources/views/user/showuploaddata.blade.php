@@ -11,14 +11,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 <style>
     table {
-        margin: 70px 80px 20px 30px; 
+        margin: 70px 80px 20px 30px;
     }
 
     table.table {
         width: 80%;
         border-collapse: collapse;
         margin: 20px auto;
-        margin-top: 80px; 
+        margin-top: 80px;
     }
 
     table.table th, table.table td {
@@ -27,9 +27,9 @@
         text-align: left;
     }
     table.table th {
-    background-color: #9f0f50;
+    background-color: #162c52;
     color: white;
-    text-align: center; 
+    text-align: center;
     font-family: nunito;
     font-size:18px;
 }
@@ -51,7 +51,7 @@
     padding: 8px 12px;
 }
 .pagination .page-link {
-        font-size: 16px; 
+        font-size: 16px;
     }
     @media screen and (max-width: 768px) {
         table.table {
@@ -70,7 +70,7 @@
         }
 
         .pagination .page-link {
-            font-size: 14px; 
+            font-size: 14px;
         }
 
         body {
@@ -79,9 +79,30 @@
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
 }
  }
+
+    .btn-back {
+        display: inline-block;
+        background: linear-gradient(135deg, #6a11cb, #744efe);
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 25px;
+        transition: all 0.3s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+
+
+    .btn-back:focus {
+        outline: none;
+
+    }
 
 
  @media screen and (max-width: 768px) {
@@ -100,7 +121,7 @@
         }
 
         .pagination .page-link {
-            font-size: 14px; 
+            font-size: 14px;
         }
 
         body {
@@ -109,7 +130,7 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0; 
+            background-color: #f0f0f0;
         }
     }
 </style>
@@ -141,11 +162,11 @@
                 $currentPage = $formatData->currentPage();
                 $serialNumber = ($currentPage - 1) * $formatData->perPage() + $key + 1;
                 $status = $item->status;
-                $commentKey = $serialNumber - 1; 
+                $commentKey = $serialNumber - 1;
                 $processed = isset($commentData[$commentKey]) ? $commentData[$commentKey]->processed : '';
             @endphp
-        
-            <tr style="background-color: 
+
+            <tr style="background-color:
             @if($status === 'downloaded' && $processed === 'published')
                 lightgreen
             @elseif($status === 'downloaded' || $processed === 'pending')
@@ -161,8 +182,8 @@
         @php
             $fileExtension = pathinfo($item->file_content, PATHINFO_EXTENSION);
             $iconClass = '';
-            $iconColor = '#007BFF'; 
-            
+            $iconColor = '#007BFF';
+
             switch ($fileExtension) {
                 case 'doc':
                 case 'docx':
@@ -171,9 +192,9 @@
                 case 'pdf':
                     $iconClass = 'fa-file-pdf';
                     break;
-               
+
                 default:
-                    $iconClass = 'fa-file'; 
+                    $iconClass = 'fa-file';
                     break;
             }
         @endphp
@@ -208,7 +229,7 @@
                         @php
                             $pdfPath = url('public/assets/' . $commentData[$commentKey]->pdf);
                         @endphp
-                
+
                         @if (file_exists(public_path('assets/' . $commentData[$commentKey]->pdf)))
                             <a href="{{ $pdfPath }}" target="_blank" download="{{ $commentData[$commentKey]->pdf }}">
                                 <i class="fas fa-file-pdf pdf-icon"></i>
@@ -242,19 +263,19 @@
     </table>
     </div>
     {{ $formatData->appends(Request::except('page'))->links('pagination::bootstrap-5') }}
-     
+
     <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-        <a href="/formating" class="btn btn-warning" role="button">Back</a>
+        <a href="/formating" class="btn-back" role="button">Back</a>
     </div>
     {{-- <div class="pagination">
         {{ $formatData->appends(Request::except('page'))->links() }}
     </div> --}}
-    
+
     {{-- <div class="pagination pagination-lg">
         {{ $formatData->appends(Request::except('page'))->links() }}
     </div>
      --}}
-    
+
 @else
 <div class="no-data" style="display: flex; align-items: center; justify-content: center; height: 50vh;">No data available.</div>
 @endif
@@ -272,8 +293,8 @@
         var form =  $(this).closest("form");
         var name = $(this).data("name");
         event.preventDefault();
-        
-        swal({ 
+
+        swal({
             title: "Are you sure you want to delete this record?",
             text: "If you delete this, it will be gone forever.",
             icon: "warning",
@@ -290,13 +311,13 @@
                     text: "Yes, delete it!",
                     value: true,
                     visible: true,
-                    className: "btn-danger", 
+                    className: "btn-danger",
                     closeModal: false,
                 }
             },
-            closeOnClickOutside: false, 
-            closeOnEsc: false, 
-            dangerMode: true, 
+            closeOnClickOutside: false,
+            closeOnEsc: false,
+            dangerMode: true,
         }).then((willDelete) => {
             if (willDelete) {
                 form.submit();
